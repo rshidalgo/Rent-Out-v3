@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\amenities;
+use App\Condo;
+use App\Types;
+use App\User;
+use Auth;
 
 
 class PostController extends Controller
@@ -56,7 +60,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-    
+    /*
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
@@ -67,13 +71,13 @@ class PostController extends Controller
             'city' => 'required',
             'price' => 'required'
         ]);
-    /*
+    
     $amenities = amenities::pluck('name','id')->all();
     $am = $request->input('amenities');
     foreach($am as $sp){
         echo $sp;
     }
-    */
+    
         // Handle File Upload
         if($request->hasFile('cover_image')){
             //Get filename with the extension
@@ -109,7 +113,11 @@ class PostController extends Controller
                 }
     
     return redirect('\post')->with('success','Post Created');
-   
+    */
+
+    $user=Auth::user()->types_id;
+    echo $user;
+    return;
         
     }
 

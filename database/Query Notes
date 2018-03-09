@@ -1,0 +1,18 @@
+Query user by their type
+
+ $user=User::find($id);
+    echo $user->types['name'];
+    
+
+Query user by their assigned Condominium
+
+ $user=User::find($id);
+    echo $user->Condo['name'];
+    
+
+Query Condominium by their assigned Developer
+
+ $condo=Condo::find($id);
+    echo $condo->developer['name'];
+
+
