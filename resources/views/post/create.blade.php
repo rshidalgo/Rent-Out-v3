@@ -1,15 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create Post</h1>
+<h1>Create Post for {{Auth::user()->condos['name']}}</h1>
     {!! Form::open(['action' => 'PostController@store','method'=>'POST','enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
             {{Form::label('title', 'Title')}} 
             {{Form::text('title', '', ['class'=>'form-control','placeholder'=>'Title'])}}
-        </div>
-        <div class="form-group">
-                {{Form::label('developer', 'Developer')}}
-                {{Form::textarea('developer', '', ['class'=>'form-control','placeholder'=>'Developer'])}}
         </div>
         <div class="form-group">
                 {{Form::label('body', 'Description')}}

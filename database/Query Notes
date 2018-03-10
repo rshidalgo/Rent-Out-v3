@@ -16,3 +16,7 @@ Query Condominium by their assigned Developer
     echo $condo->developer['name'];
 
 
+    $amenities = amenities::pluck('name','id')->all();
+    $am = $request->input('amenities');
+    foreach($am as $sp){
+        echo $sp;

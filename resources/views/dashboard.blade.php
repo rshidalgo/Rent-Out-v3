@@ -15,12 +15,7 @@
                     @endif
                     <a href="/post/create" class="btn btn-primary">Create Post</a>
                     @if(count($posts) > 0)
-                        <tr>
-                            <th>Title</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        <h3>Your's' Blog Posts</h3>
+                        <h3>{{Auth::user()->name}}'s Posts</h3>
                         @foreach($posts as $post)
                             <table class="table table-striped">
                                 <tr>

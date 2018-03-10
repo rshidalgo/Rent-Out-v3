@@ -16,4 +16,7 @@ class Condo extends Model
     public function developer(){
         return $this->belongsTo(Developer::class);
     }
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 }

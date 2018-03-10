@@ -46,6 +46,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        if(auth()->user()->types['id'] == 1){
+            return redirect('/')->with('error', 'Unauthorized Page');
+        }
         //
         $amenities = amenities::pluck('name','id')->all();        
 
@@ -60,7 +63,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-    /*
+        if(auth()->user()->types['id'] == 1){
+            return redirect('/')->with('error', 'Unauthorized Page');
+        }
+    
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
@@ -71,12 +77,6 @@ class PostController extends Controller
             'city' => 'required',
             'price' => 'required'
         ]);
-    
-    $amenities = amenities::pluck('name','id')->all();
-    $am = $request->input('amenities');
-    foreach($am as $sp){
-        echo $sp;
-    }
     
         // Handle File Upload
         if($request->hasFile('cover_image')){
@@ -104,6 +104,7 @@ class PostController extends Controller
         $post->city = $request->input('city');
         $post->price = $request->input('price');
         $post->user_id = auth()->user()->id;
+        $post->condos_id = Auth::user()->condos['id'];
         $post->cover_image = $fileNameToStore;
         $post->save();
         $post=Post::orderby('created_at','desc')->first();
@@ -113,12 +114,7 @@ class PostController extends Controller
                 }
     
     return redirect('\post')->with('success','Post Created');
-    */
-
-    $user=Auth::user()->types_id;
-    echo $user;
-    return;
-        
+    
     }
 
     /**
@@ -141,6 +137,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        if(auth()->user()->types['id'] == 1){
+            return redirect('/')->with('error', 'Unauthorized Page');
+        }
         $post = Post::find($id);
         //Check for correct user
         if(auth()->user()->id !== $post->user_id){
@@ -158,6 +157,9 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(auth()->user()->types['id'] == 1){
+            return redirect('/')->with('error', 'Unauthorized Page');
+        }
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required'
@@ -194,6 +196,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        if(auth()->user()->types['id'] == 1){
+            return redirect('/')->with('error', 'Unauthorized Page');
+        }
         $post = Post::find($id);
          //Check for correct user
          if(auth()->user()->id !== $post->user_id){

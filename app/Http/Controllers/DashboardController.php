@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     /**
@@ -23,8 +22,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        if(auth()->user()->types['id'] == 1){
+            return redirect('/')->with('error', 'Unauthorized Page');
+        }
+        
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         return view('dashboard')->with('posts', $user->posts);
+        
     }
 }

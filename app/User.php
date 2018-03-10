@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'gender', 'date_of_birth',
+        'name', 'email', 'password', 'gender', 'date_of_birth', 'phone_num', 'telephone_num',
     ];
 
     /**
@@ -32,5 +32,8 @@ class User extends Authenticatable
     }
     public function types(){
         return $this->belongsTo(Types::class);
+    }
+    public function condos(){
+        return $this->belongsTo(Condo::class);
     }
 }

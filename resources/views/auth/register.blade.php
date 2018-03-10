@@ -68,6 +68,34 @@
                         </div>
 
                         <div class="form-group row">
+                                <label for="phone_num" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+    
+                                <div class="col-md-6">
+                                    <input id="phone_num" type="text" class="form-control{{ $errors->has('phone_num') ? ' is-invalid' : '' }}" name="phone_num" value="{{ old('phone_num') }}" required>
+    
+                                    @if ($errors->has('phone_num'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('phone_num') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                    <label for="telephone_num" class="col-md-4 col-form-label text-md-right">Telephone Number</label>
+        
+                                    <div class="col-md-6">
+                                        <input id="telephone_num" type="text" class="form-control{{ $errors->has('telephone_num') ? ' is-invalid' : '' }}" name="telephone_num" value="{{ old('telephone_num') }}" required>
+        
+                                        @if ($errors->has('telephone_num'))
+                                            <span class="invalid-feedback">
+                                                <strong>{{ $errors->first('telephone_num') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
 
                             <div class="col-md-6">

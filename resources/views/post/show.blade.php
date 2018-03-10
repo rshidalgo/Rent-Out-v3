@@ -15,8 +15,10 @@
        <h3>Inclusion: {!!$post->inclusion!!}</h3>
        <h3>Unit Level: {!!$post->unit_level!!}</h3>
        <h3>Unit Type: {!!$post->unit_type!!}</h3>
+       
        <h3>City: {!!$post->city!!}</h3>
-       <h3>Price: {!!$post->price!!}</h3>
+       <h3>
+       <h3>Price: PHP {!!$post->price!!}</h3>
 
 
 

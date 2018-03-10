@@ -20,4 +20,8 @@ class Post extends Model
     public function amenities(){
         return $this->belongsToMany(amenities::class);
     }
+
+    public function condos(){
+        return $this->belongsTo(Condo::class);
+    }
 }
