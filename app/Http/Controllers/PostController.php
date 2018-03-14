@@ -30,6 +30,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        
         //$posts = Post::all();
         //$post = Post::where('title', 'Post Two')->get();
         //$posts = Post::orderby('title','desc')->take(1)->get();
@@ -215,5 +216,10 @@ class PostController extends Controller
         return redirect('\post')->with('success','Post Deleted');
 
     }
-
+    public function search(Request $request){
+        $search=$request->input('search_term');
+        $output = Post::search($search)->paginate(10);
+        return view('post.index')->with('posts', $output);
+    }
+    
 }

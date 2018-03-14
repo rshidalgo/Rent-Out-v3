@@ -20,6 +20,12 @@
        <h3>
        <h3>Price: PHP {!!$post->price!!}</h3>
 
+       <a href="/sitevisit" class = "btn btn-primary">Site Visit</a>
+       <a href="/reserve" class = "btn btn-primary">Reserve</a>
+       <a href="/book" class = "btn btn-primary">Book</a>
+
+
+
 
 
     </div>

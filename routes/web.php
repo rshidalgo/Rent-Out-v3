@@ -26,6 +26,13 @@ Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
 Route::resource('post', 'PostController');
+Route::get('search', 'PostController@search')->name('search');
+
+Route::get('sitevisit','Email@siteVisit');
+Route::get('reserve','Email@reserve');
+Route::get('book','Email@book');
+
+
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
