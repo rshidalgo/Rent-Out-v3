@@ -24,4 +24,13 @@ class Post extends Model
     public function condos(){
         return $this->belongsTo(Condo::class);
     }
+
+    public function scopeSearch($query, $search_term){
+        return $query->whereHas('condos',function($query) use($search_term){
+
+            $query->where('name','like','%'.$search_term. '%');
+
+        })->orWhere('title','like','%'.$search_term. '%')->orWhere('body','like','%'.$search_term. '%');
+        
+    }
 }
