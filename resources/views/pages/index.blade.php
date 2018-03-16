@@ -48,11 +48,11 @@
                             <a href="/post/{{$post->id}}">
                                 <img src="/storage/cover_images/{{$post->cover_image}}" class="img-fluid" alt="#">
                                 {{--  add rating data here  --}}
-                                <span class="featured-rating-orange">6.5</span>
+                            <span class="featured-rating-orange">{!!str_replace(["[","]","\""],' ',$post->condos()->pluck('ratings'))!!}</span>
                                 {{--  add rating data here  --}}
                                 <div class="featured-title-box">
                                     <h6>{{$post->title}}</h6>
-                                    <p>Restaurant </p> <span>• </span>
+                                    <p>{!!str_replace(["[","]","\""],' ',$post->condos()->pluck('name'))!!} </p> <span>• </span>
                                     <p>3 Reviews</p> <span> • </span>
                                     <p><span>$$$</span>$$</p>
                                     <ul>
@@ -68,7 +68,7 @@
 
                                     </ul>
                                     <div class="bottom-icons">
-                                        <div class="closed-now">CLOSED NOW</div>
+                                        <div class="open-now">Sale!</div>
                                         <span class="ti-heart"></span>
                                         <span class="ti-bookmark"></span>
                                     </div>
