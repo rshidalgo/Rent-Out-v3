@@ -1,24 +1,53 @@
 @extends('layouts.app')
-
-@section('content')
-    <h1>Post</h1>
-    @if(count($posts) > 0)
-        @foreach($posts as $post)
-            <div class="well">
-                <div class="row">
-                    <div class="col-md-4 col=sm=4">
-                    <a href="/post/{{$post->id}}">
-                        <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">
-                        <h3>{{$post->title}}</h3>
-                    </a>
+<!--============================= FEATURED PLACES =============================-->
+<section class="main-block light-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="styled-heading">
+                        <h3>Featured Places</h3>
                     </div>
                 </div>
-                
-                <small>Written on {{$post->created_at}} by {{$post->user['name']}}</small>
             </div>
-        @endforeach
-        {{$posts->links()}}
-    @else
-            <p>No posts found</p>
-    @endif
-@endsection
+            <div class="row">
+                @if(count($posts) > 0)
+                    @foreach($posts as $post)
+                        <div class="col-md-4 featured-responsive">
+                            <div class="featured-place-wrap">
+                                <a href="/post/{{$post->id}}">
+                                    <img src="/storage/cover_images/{{$post->cover_image}}" class="img-fluid" alt="#">
+                                    {{--  add rating data here  --}}
+                                <span class="featured-rating-orange">{!!str_replace(["[","]","\""],' ',$post->condos()->pluck('ratings'))!!}</span>
+                                    {{--  add rating data here  --}}
+                                    <div class="featured-title-box">
+                                        <h6>{{$post->title}}</h6>
+                                        <p>{!!str_replace(["[","]","\""],' ',$post->condos()->pluck('name'))!!} </p> <span>• </span>
+                                        <p>3 Reviews</p> <span> • </span>
+                                        <p><span>$$$</span>$$</p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                            <p>City: {{$post->city}}</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>Inclusion: {{$post->inclusion}}</p>
+                                            </li>
+                                            <li><span class="icon-link"></span>
+                                                <p>Price: {{$post->price}}</p>
+                                            </li>
+    
+                                        </ul>
+                                        <div class="bottom-icons">
+                                            <div class="open-now">Sale!</div>
+                                            <span class="ti-heart"></span>
+                                            <span class="ti-bookmark"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+</section>
+    

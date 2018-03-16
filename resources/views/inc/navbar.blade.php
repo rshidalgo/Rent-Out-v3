@@ -26,72 +26,69 @@
 </head>
 
 <body>
-        <div class="nav-menu">
-                <div class="bg transition">
-                    <div class="container-fluid fixed">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <nav class="navbar navbar-expand-lg navbar-light">
-              <a class="navbar-brand" href="{{ url('/') }}">
-                  {{ config('app.name', 'Laravel') }}
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
+    <div class="nav-menu">
+        <div class="bg transition">
+            <div class="container-fluid fixed">
+                <div class="row">
+                    <div class="col-md-12 dark-bg">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand" href="{{ url('/') }}">
+                                {{ config('app.name', 'Laravel') }}
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
 
-              <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                   <!-- Left Side Of Navbar -->
-
-                  <ul class="navbar-nav">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/services">Services</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/post">Blog</a>
-                        </li>
-                    </ul>
+                                <ul class="navbar-nav"></ul>
+                <!-- Right Side Of Navbar -->
+                                <ul class="navbar-nav ml-auto">
+                                        <ul class="navbar-nav">
+                                                <li class="nav-item active">
+                                                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="/about">About</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="/services">Services</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="/post">Dashboard</a>
+                                                </li>
+                                            </ul>
+                <!-- Authentication Links -->
+                                    @guest
+                                        <li class="nav-item"><a class="btn btn-outline-light top-btn" href="{{ route('login') }}">Login</a></li>
+                                        <li class="nav-item"><a class="btn btn-outline-light top-btn" href="{{ route('register') }}">Register</a></li>
+                                        @else
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/dashboard" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    @if(Auth::user()->types['id'] == 2)
+                                                        <a class="dropdown-item" href="/dashboard">Posts</a>
+                                                    @endif
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();">
+                                                        Logout
+                                                    </a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </div>
+                                            </li>
+                                    @endguest
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
-                  <!-- Right Side Of Navbar -->
-                  <ul class="navbar-nav ml-auto">
-                      <!-- Authentication Links -->
-                      @guest
-                      <li class="nav-item"><a class="btn btn-outline-light top-btn" href="{{ route('login') }}">Login</a></li>
-                      <li class="nav-item"><a class="btn btn-outline-light top-btn" href="{{ route('register') }}">Register</a></li>
-                      @else
-                          <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  {{ Auth::user()->name }} <span class="caret"></span>
-                              </a>
-                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @if(Auth::user()->types['id'] == 2)
-                                <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                                @endif
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                     onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                      Logout
-                                  </a>
-
-                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                      @csrf
-                                  </form>
-                              </div>
-                          </li>
-                      @endguest
-                  </ul>
-              </div>
-          </div>
-      </nav>
+            </div>
+        </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-    </body>
-    </html>
+</body>
+</html>

@@ -31,7 +31,66 @@
 </head>
 
 <body>
-    @include('inc.navbar')
+    <!--============================= HEADER =============================-->
+    <div class="dark-bg sticky-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html">Listing</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="icon-menu"></span>
+            </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Explore
+                   <span class="icon-arrow-down"></span>
+                 </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Listing
+                  <span class="icon-arrow-down"></span>
+                </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Pages
+                  <span class="icon-arrow-down"></span>
+                </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Blog</a>
+                                </li>
+                                <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//END HEADER -->
     <!--============================= BOOKING =============================-->
     <div>
         <!-- Swiper -->
@@ -82,9 +141,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>{{$post->title}}</h5>
+                    <h5>Tasty Hand-Pulled Noodles</h5>
                     <p><span>$$$</span>$$</p>
-                    <p class="reserve-description">Written on {{$post->created_at}} by {{$post->user['name']}}</p>
+                    <p class="reserve-description">Innovative cooking, paired with fine wines in a modern setting.</p>
                 </div>
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
@@ -97,7 +156,7 @@
                         </div>
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="/book" class="btn btn-danger">BOOK NOW</a>
+                                <a href="#" class="btn btn-danger">RESERVE A SEAT</a>
                             </div>
                         </div>
                     </div>
@@ -113,15 +172,12 @@
                 <div class="col-md-8 responsive-wrap">
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->inclusion!!}</p>
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->body!!}</p>
-
+                            <p>Tasty Hand-Pulled Noodles is a 1950s style diner located in Madison, Wisconsin. Opened in 1946 by Mickey Weidman, and located just across the street from Camp Randall Stadium, it has become a popular game day tradition amongst
+                                many Badger fans. The diner is well known for its breakfast selections, especially the Scrambler, which is a large mound of potatoes, eggs, cheese, gravy, and a patrons’ choice of other toppings.</p>
+                            <p>Mickies has also been featured on “Todd’s Taste of the Town” during one of ESPN’s college football broadcasts. We are one of the best Chinese restaurants in the New York, New York area. We have been recognized for our outstanding
+                                Chinese & Asian cuisine, excellent Chinese menu, and great restaurant specials. We are one of the best Chinese restaurants in the New York, New York area. We have been recognized for our outstanding Chinese & Asian cuisine,
+                                excellent Chinese menu, and great restaurant specials.</p>
+                            <hr>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
