@@ -119,7 +119,7 @@ p {
 
 .is-sticky {
   background: #252a33;
-  opacity: 1; }
+  opacity: 100; }
 
 .transition {
   -webkit-transition: all 1s ease-in-out;
