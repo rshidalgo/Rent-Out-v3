@@ -185,6 +185,14 @@ class PostController extends Controller
         if($request->hasFile('cover_image')){
             $post->cover_image = $fileNameToStore;
         }
+        $post->inclusion = $request->input('inclusion');
+        $post->unit_level = $request->input('unit_level');
+        $post->unit_type = $request->input('unit_type');
+        $post->city = $request->input('city');
+        $post->price = $request->input('price');
+        $post->user_id = auth()->user()->id;
+        $post->condos_id = Auth::user()->condos['id'];
+        $post->cover_image = $fileNameToStore;
         $post->save();
         return redirect('\post')->with('success','Post Updated');
     }

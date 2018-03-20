@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<br>
+<br>
+<br>
+<br>
 <h1>Create Post for {{Auth::user()->condos['name']}}</h1>
     {!! Form::open(['action' => 'PostController@store','method'=>'POST','enctype' => 'multipart/form-data']) !!}
         <div class="form-group">

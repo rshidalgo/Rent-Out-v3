@@ -39,6 +39,7 @@
        <link rel="stylesheet" href="/css/style.css">
        <!-- Favicons -->
         <link rel="shortcut icon" href="#">
+        
 </head>
 <body>
     <div id="app">
@@ -46,14 +47,8 @@
         @include('inc.messages')
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace( 'article-ckeditor' );
-    </script>
-    <!-- jQuery, Bootstrap JS. -->
+    
+<!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/popper.min.js"></script>
@@ -96,25 +91,5 @@
             });
         }
     </script>
-
-{{--  <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script>
-    $(window).scroll(function() {
-        // 100 = The point you would like to fade the nav in.
-
-        if ($(window).scrollTop() > 100) {
-
-            $('.fixed').addClass('is-sticky');
-
-        } else {
-
-            $('.fixed').removeClass('is-sticky');
-
-        };
-    });  --}}
-</script>
 </body>
 </html>

@@ -1,9 +1,13 @@
 @extends('layouts.app')
 <!--============================= FEATURED PLACES =============================-->
 <section class="main-block light-bg">
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-5">
+                <div class="col-md-5">d
                     <div class="styled-heading">
                         <h3>Featured Places</h3>
                     </div>

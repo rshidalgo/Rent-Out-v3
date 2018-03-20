@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="slider-content_wrap">
-                                    <h1>Discover great places in Philippines</h1>
+                                    <h1>condominiums within reach</h1>
                                     <h5>Let's uncover the best condominium units nearest to you.</h5>
                                 </div>
                             </div>
@@ -22,7 +22,6 @@
                                     <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
-                                
                             </div>
                         </div>
                     </div>
@@ -82,7 +81,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="featured-btn-wrap">
-                    <a href="#" class="btn btn-danger">VIEW ALL</a>
+                    <a href="/post" class="btn btn-danger">VIEW ALL</a>
                 </div>
             </div>
         </div>
