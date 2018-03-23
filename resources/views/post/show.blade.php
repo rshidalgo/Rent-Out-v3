@@ -115,7 +115,7 @@
                         <div class="booking-checkbox">
                         <p>{!!$post->body!!}</p>
                         <p>{!!$post->inclusion!!}</p>
-                        <p>{!!$post->body!!}</p>
+                        <p>{!!$post->price!!}</p>
                         <p>{!!$post->body!!}</p>
                         <p>{!!$post->body!!}</p>
                         <p>{!!$post->body!!}</p>
@@ -159,6 +159,45 @@
                             </div>
                         </div>
                     </div>
+                    {{--  Booking Section  --}}
+                    <div class="booking-checkbox_wrap mt-4">
+                        <h5>Book Now</h5>
+                        <hr>
+                        <div class="customer-review_wrap">
+                            
+                            <div class="customer-content-wrap">
+                                {!! Form::open(['action' => 'Email@book','method'=>'POST','enctype' => 'multipart/form-data']) !!}
+                                <div class="form-group">
+                                    {{Form::label('start', 'Stay Duration')}}
+                                    {{Form::select('Duration', ['sixmonths' => '6 Months', 'oneyear' => '1 Year'])}}
+                                </div>
+                                <div class="form-group">
+                                    {{Form::label('optional', 'Additional Inquiries')}}
+                                    {{Form::textarea('inquiry', '', ['class'=>'form-control','placeholder'=>'(Optional)'])}}                                </div>
+                                {{Form::submit('Submit', ['class'=>'btn btn-primary '])}}
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="booking-checkbox_wrap mt-4">
+                        <h5>Site Visit Request</h5>
+                        <hr>
+                        <div class="customer-review_wrap">
+                            
+                            <div class="customer-content-wrap">
+                                {!! Form::open(['action' => 'Email@siteVisit','method'=>'POST','enctype' => 'multipart/form-data']) !!}
+                                <div class="form-group">
+                                    {{Form::label('time', 'Visit Time')}}
+                                    {{Form::select('time', ['am' => 'AM', 'pm' => 'PM'])}}
+                                </div>
+                                <div class="form-group">
+                                    {{Form::label('optional', 'Additional Inquiries')}}
+                                    {{Form::textarea('inquiry', '', ['class'=>'form-control','placeholder'=>'(Optional)'])}}                                </div>
+                                {{Form::submit('Submit', ['class'=>'btn btn-primary '])}}
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4 responsive-wrap">
                     <div class="contact-info">
@@ -173,12 +212,12 @@
                         </div>
                         <div class="address">
                             <span class="icon-link"></span>
-                            <p>https://burgerandlobster.com</p>
+                            <p>https://www.dmcihomes.com/prisma-residences</p>
                         </div>
                         <div class="address">
                             <span class="icon-clock"></span>
                             <p>Mon - Sun 09:30 am - 05:30 pm <br>
-                                <span class="open-now">OPEN NOW</span></p>
+                                <span class="open-now">INQUIRE NOW!</span></p>
                         </div>
                         <a href="#" class="btn btn-outline-danger btn-contact">SEND A MESSAGE</a>
                     </div>
@@ -207,8 +246,10 @@
                 </div>
             </div>
         </div>
+        
     </section>
     <!--//END BOOKING DETAILS -->
+    
     <!--============================= FOOTER =============================-->
     <footer class="main-block dark-bg">
         <div class="container">

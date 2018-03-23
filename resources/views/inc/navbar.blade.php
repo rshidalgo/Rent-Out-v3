@@ -10,7 +10,7 @@
     <meta name="description" content="#">
     <meta name="keywords" content="#">
     <!-- Page Title -->
-    <title>RentOut &amp; Directory Website Template</title>
+    <title>RentOut</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Google Fonts -->
@@ -52,7 +52,7 @@
                                                     <a class="nav-link" href="/about">About</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="/services">Services</a>
+                                                    <a class="nav-link" href="/services">Developers</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="/post">Dashboard</a>

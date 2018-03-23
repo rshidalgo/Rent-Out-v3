@@ -9,14 +9,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="slider-content_wrap">
-                                    <h1>condominiums within reach</h1>
+                                    <h1>Condominiums within reach</h1>
                                     <h5>Let's uncover the best condominium units nearest to you.</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-10">
-                                <form class="form-wrap mt-4" method="GET" action="/search">
+                                <form class="form-wrap mt-4" method="GET" action="search">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input name="search_term" type="text" placeholder="  What are your looking for?" class="btn-group">
                                     <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
@@ -87,6 +87,29 @@
         </div>
     </div>
 </section>
+
+    <!--============================= CATEGORIES =============================-->
+    <section class="main-block">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="styled-heading">
+                        <h3>Browse Categories</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 category-responsive">
+                <div class="featured-place-wrap">
+                    <a href="/services">
+                        <img src="/storage/developers/avida.png" class="img-fluid" alt="#">
+                        {{--  add rating data here  --}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//END CATEGORIES -->
+
 <!--============================= ADD LISTING =============================-->
 <section class="main-block light-bg">
         <div class="container">
@@ -94,7 +117,7 @@
                 <div class="col-md-12">
                     <div class="add-listing-wrap">
                         <h2>Reach millions of People</h2>
-                        <p>Add your Business infront of millions and earn 3x profits from our listing</p>
+                        <p>Add your business infront of millions and earn 3x profits from our listing</p>
                     </div>
                 </div>
             </div>
