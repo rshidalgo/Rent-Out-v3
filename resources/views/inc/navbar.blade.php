@@ -10,19 +10,19 @@
     <meta name="description" content="#">
     <meta name="keywords" content="#">
     <!-- Page Title -->
-    <title>RentOut &amp; Directory Website Template</title>
+    <title>RentOut</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="css/simple-line-icons.css">
+    <link rel="stylesheet" href="/css/simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="/css/themify-icons.css">
     <!-- Hover Effects -->
-    <link rel="stylesheet" href="css/set1.css">
+    <link rel="stylesheet" href="/css/set1.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -52,7 +52,7 @@
                                                     <a class="nav-link" href="/about">About</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="/services">Services</a>
+                                                    <a class="nav-link" href="/services">Developers</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="/post">Dashboard</a>
@@ -68,8 +68,23 @@
                                                     {{ Auth::user()->name }} <span class="caret"></span>
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    {{--  Property Specialist  --}}                                                    
                                                     @if(Auth::user()->types['id'] == 2)
                                                         <a class="dropdown-item" href="/dashboard">Posts</a>
+                                                        <a class="dropdown-item" href="#">Profile</a>
+                                                        <a class="dropdown-item" href="#">Posts Status</a>
+                                                        <a class="dropdown-item" href="#">Generate Report</a>
+                                                    {{--  Admin  --}}
+                                                    @elseif(Auth::user()->types['id'] == 3)
+                                                        <a class="dropdown-item" href="#">Users</a>
+                                                        <a class="dropdown-item" href="/dashboard">Condo</a>
+                                                        <a class="dropdown-item" href="#">Billing</a>
+                                                        <a class="dropdown-item" href="#">Generate Report</a>
+                                                    {{--  Customer  --}}
+                                                    @elseif(Auth::user()->types['id'] == 1)
+                                                        <a class="dropdown-item" href="#">Profile</a>
+                                                        <a class="dropdown-item" href="#">History</a>
                                                     @endif
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();

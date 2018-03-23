@@ -9,6 +9,7 @@ class Email extends Controller
 {
     
     public function siteVisit() {
+        // Request $request
 
         $data = array(
             'name' => "Unit Site Visit",
@@ -16,7 +17,7 @@ class Email extends Controller
     
         Mail::send('/welcome', $data, function ($message) {
     
-            $message->from('elliotwalteriq@gmail.com', 'Learning Laravel');
+            $message->from('elliotwalteriq@gmail.com', 'Rentout Property Specialist');
     
             $message->to('elliotwalteriq@gmail.com')->subject('Site Visit Request');
     
@@ -26,23 +27,6 @@ class Email extends Controller
     
     }
 
-    public function reserve() {
-
-        $data = array(
-            'name' => "Unit Reserve",
-        );
-    
-        Mail::send('/welcome', $data, function ($message) {
-    
-            $message->from('elliotwalteriq@gmail.com', 'Learning Laravel');
-    
-            $message->to('elliotwalteriq@gmail.com')->subject('Reservation Request');
-    
-        });
-    
-        return redirect('\post')->with('success','Reservation Request Sent!');
-    
-    }
 
     public function book() {
 
@@ -52,7 +36,7 @@ class Email extends Controller
     
         Mail::send('/welcome', $data, function ($message) {
     
-            $message->from('elliotwalteriq@gmail.com', 'what is this');
+            $message->from('elliotwalteriq@gmail.com', 'Rentout Property Specialist');
     
             $message->to('elliotwalteriq@gmail.com')->subject('Booking Request');
     
@@ -60,9 +44,5 @@ class Email extends Controller
     
         return redirect('\post')->with('success','Booking Request Sent!');
     
-    }
-
-    public function search(){
-        return "hello";
     }
 }

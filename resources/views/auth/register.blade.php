@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -68,7 +72,7 @@
                         </div>
 
                         <div class="form-group row">
-                                <label for="phone_num" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                <label for="phone_num" class="col-md-4 col-form-label text-md-right">Mobile No.</label>
     
                                 <div class="col-md-6">
                                     <input id="phone_num" type="text" class="form-control{{ $errors->has('phone_num') ? ' is-invalid' : '' }}" name="phone_num" value="{{ old('phone_num') }}" required>
@@ -82,7 +86,7 @@
                             </div>
 
                             <div class="form-group row">
-                                    <label for="telephone_num" class="col-md-4 col-form-label text-md-right">Telephone Number</label>
+                                    <label for="telephone_num" class="col-md-4 col-form-label text-md-right">Telephone No.</label>
         
                                     <div class="col-md-6">
                                         <input id="telephone_num" type="text" class="form-control{{ $errors->has('telephone_num') ? ' is-invalid' : '' }}" name="telephone_num" value="{{ old('telephone_num') }}" required>

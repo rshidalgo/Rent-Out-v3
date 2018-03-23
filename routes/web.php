@@ -24,8 +24,13 @@ Route::get('/users/{id}/{name}', function ($id, $name) {
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
+Route::get('/admin/condos', 'PagesController@condo');
+Route::get('/admin/users', 'PagesController@user');
+
+
 
 Route::resource('post', 'PostController');
+Route::resource('admin', 'AdminController');
 Route::get('search', 'PostController@search')->name('search');
 
 Route::get('sitevisit','Email@siteVisit');
