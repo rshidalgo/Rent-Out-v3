@@ -115,7 +115,7 @@
                         <div class="booking-checkbox">
                         <p>{!!$post->body!!}</p>
                         <p>{!!$post->inclusion!!}</p>
-                        <p>{!!$post->body!!}</p>
+                        <p>{!!$post->price!!}</p>
                         <p>{!!$post->body!!}</p>
                         <p>{!!$post->body!!}</p>
                         <p>{!!$post->body!!}</p>
@@ -159,69 +159,42 @@
                             </div>
                         </div>
                     </div>
+                    {{--  Booking Section  --}}
                     <div class="booking-checkbox_wrap mt-4">
-                        <h5>34 Reviews</h5>
+                        <h5>Book Now</h5>
                         <hr>
                         <div class="customer-review_wrap">
-                            <div class="customer-img">
-                                <img src="/images/customer-img1.jpg" class="img-fluid" alt="#">
-                                <p>Amanda G</p>
-                                <span>35 Reviews</span>
-                            </div>
+                            
                             <div class="customer-content-wrap">
-                                <div class="customer-content">
-                                    <div class="customer-review">
-                                        <h6>Best noodles in the Newyork city</h6>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p>Reviewed 2 days ago</p>
-                                    </div>
-                                    <div class="customer-rating">8.0</div>
+                                {!! Form::open(['action' => 'Email@book','method'=>'POST','enctype' => 'multipart/form-data']) !!}
+                                <div class="form-group">
+                                    {{Form::label('start', 'Stay Duration')}}
+                                    {{Form::select('Duration', ['sixmonths' => '6 Months', 'oneyear' => '1 Year'])}}
                                 </div>
-                                <p class="customer-text">I love the noodles here but it is so rare that I get to come here. Tasty Hand-Pulled Noodles is the best type of whole in the wall restaurant. The staff are really nice, and you should be seated quickly. I usually get the
-                                    hand pulled noodles in a soup. House Special #1 is amazing and the lamb noodles are also great. If you want your noodles a little chewier, get the knife cut noodles, which are also amazing. Their dumplings are great
-                                    dipped in their chili sauce.
-                                </p>
-                                <p class="customer-text">I love how you can see into the kitchen and watch them make the noodles and you can definitely tell that this is a family run establishment. The prices are are great with one dish maybe being $9. You just have to remember
-                                    to bring cash.
-                                </p>
-                                <ul>
-                                    <li><img src="/images/review-img1.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="/images/review-img2.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="/images/review-img3.jpg" class="img-fluid" alt="#"></li>
-                                </ul>
-                                <span>28 people marked this review as helpful</span>
-                                <a href="#"><span class="icon-like"></span>Helpful</a>
+                                <div class="form-group">
+                                    {{Form::label('optional', 'Additional Inquiries')}}
+                                    {{Form::textarea('inquiry', '', ['class'=>'form-control','placeholder'=>'(Optional)'])}}                                </div>
+                                {{Form::submit('Submit', ['class'=>'btn btn-primary '])}}
+                                {!! Form::close() !!}
                             </div>
                         </div>
+                    </div>
+                    <div class="booking-checkbox_wrap mt-4">
+                        <h5>Site Visit Request</h5>
                         <hr>
                         <div class="customer-review_wrap">
-                            <div class="customer-img">
-                                <img src="/images/customer-img2.jpg" class="img-fluid" alt="#">
-                                <p>Kevin W</p>
-                                <span>17 Reviews</span>
-                            </div>
+                            
                             <div class="customer-content-wrap">
-                                <div class="customer-content">
-                                    <div class="customer-review">
-                                        <h6>A hole-in-the-wall old school shop.</h6>
-                                        <span class="customer-rating-red"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p>Reviewed 3 months ago</p>
-                                    </div>
-                                    <div class="customer-rating customer-rating-red">2.0</div>
+                                {!! Form::open(['action' => 'Email@siteVisit','method'=>'POST','enctype' => 'multipart/form-data']) !!}
+                                <div class="form-group">
+                                    {{Form::label('time', 'Visit Time')}}
+                                    {{Form::select('time', ['am' => 'AM', 'pm' => 'PM'])}}
                                 </div>
-                                <p class="customer-text">The dumplings were so greasy...the pan-fried shrimp noodles were the same. So much oil and grease it was difficult to eat. The shrimp noodles only come with 3 shrimp (luckily the dish itself is cheap) </p>
-                                <p class="customer-text">The beef noodle soup was okay. I added black vinegar into the broth to give it some extra flavor. The soup has bok choy which I liked - it's a nice textural element. The shop itself is really unclean (which is the case
-                                    in many restaurants in Chinatown) They don't wipe down the tables after customers have eaten. If you peak into the kitchen many of their supplies are on the ground which is unsettling... </p>
-                                <span>10 people marked this review as helpful</span>
-                                <a href="#"><span class="icon-like"></span>Helpful</a>
+                                <div class="form-group">
+                                    {{Form::label('optional', 'Additional Inquiries')}}
+                                    {{Form::textarea('inquiry', '', ['class'=>'form-control','placeholder'=>'(Optional)'])}}                                </div>
+                                {{Form::submit('Submit', ['class'=>'btn btn-primary '])}}
+                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>
@@ -239,12 +212,12 @@
                         </div>
                         <div class="address">
                             <span class="icon-link"></span>
-                            <p>https://burgerandlobster.com</p>
+                            <p>https://www.dmcihomes.com/prisma-residences</p>
                         </div>
                         <div class="address">
                             <span class="icon-clock"></span>
                             <p>Mon - Sun 09:30 am - 05:30 pm <br>
-                                <span class="open-now">OPEN NOW</span></p>
+                                <span class="open-now">INQUIRE NOW!</span></p>
                         </div>
                         <a href="#" class="btn btn-outline-danger btn-contact">SEND A MESSAGE</a>
                     </div>
@@ -273,8 +246,10 @@
                 </div>
             </div>
         </div>
+        
     </section>
     <!--//END BOOKING DETAILS -->
+    
     <!--============================= FOOTER =============================-->
     <footer class="main-block dark-bg">
         <div class="container">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Condo;
+
 use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
@@ -22,13 +24,22 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        $condos = Condo::get();
+        // Customer
         if(auth()->user()->types['id'] == 1){
             return redirect('/')->with('error', 'Unauthorized Page');
         }
-        
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('dashboard')->with('posts', $user->posts);
+        // Admin
+        elseif(auth()->user()->types['id'] == 3){
+            return view('dashboard')->with('condos', $condos);
+        }
+        // Property Specialist
+        else{
+            return view('dashboard')->with('posts', $user->posts);
+        }
+       
         
     }
 }
