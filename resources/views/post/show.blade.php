@@ -166,7 +166,7 @@
                         <div class="customer-review_wrap">
                             
                             <div class="customer-content-wrap">
-                                {!! Form::open(['action' => 'Email@book','method'=>'POST','enctype' => 'multipart/form-data']) !!}
+                                {!! Form::open(['action' => 'Email@book','method'=>'GET','enctype' => 'multipart/form-data']) !!}
                                 <div class="form-group">
                                     {{Form::label('start', 'Stay Duration')}}
                                     {{Form::select('Duration', ['sixmonths' => '6 Months', 'oneyear' => '1 Year'])}}
@@ -185,7 +185,7 @@
                         <div class="customer-review_wrap">
                             
                             <div class="customer-content-wrap">
-                                {!! Form::open(['action' => 'Email@siteVisit','method'=>'POST','enctype' => 'multipart/form-data']) !!}
+                                {!! Form::open(['action' => 'Email@siteVisit','method'=>'GET','enctype' => 'multipart/form-data']) !!}
                                 <div class="form-group">
                                     {{Form::label('time', 'Visit Time')}}
                                     {{Form::select('time', ['am' => 'AM', 'pm' => 'PM'])}}
