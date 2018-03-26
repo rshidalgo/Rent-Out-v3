@@ -72,7 +72,6 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required',
             'cover_image' => 'image|nullable|max:10000',
-            'dev_image' => 'image|nullable|max:10000',
             'inclusion' => 'required',
             'unit_level' => 'required',
             'unit_type' => 'required',
@@ -108,7 +107,6 @@ class PostController extends Controller
         $post->user_id = auth()->user()->id;
         $post->condos_id = Auth::user()->condos['id'];
         $post->cover_image = $fileNameToStore;
-        $post->dev_image = $fileNameToStore;
         $post->save();
         $post=Post::orderby('created_at','desc')->first();
             $amenities = $request->input('amenities');
