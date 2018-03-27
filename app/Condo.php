@@ -19,4 +19,10 @@ class Condo extends Model
     public function posts(){
         return $this->hasMany(Post::class);
     }
+    public function amenities(){
+        return $this->belongsToMany(amenities::class);
+    }
+    public function pspecialist(){
+        return $this->hasOne(User::class);
+    }
 }

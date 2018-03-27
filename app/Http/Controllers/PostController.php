@@ -72,7 +72,6 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required',
             'cover_image' => 'image|nullable|max:10000',
-            'dev_image' => 'image|nullable|max:10000',
             'inclusion' => 'required',
             'unit_level' => 'required',
             'unit_type' => 'required',
@@ -106,15 +105,14 @@ class PostController extends Controller
         $post->city = $request->input('city');
         $post->price = $request->input('price');
         $post->user_id = auth()->user()->id;
-        $post->condos_id = Auth::user()->condos['id'];
+        $post->condo_id = auth()->user()->condo_id;;
         $post->cover_image = $fileNameToStore;
-        $post->dev_image = $fileNameToStore;
         $post->save();
-        $post=Post::orderby('created_at','desc')->first();
-            $amenities = $request->input('amenities');
-                foreach($amenities as $amenity){
-                    $post->amenities()->attach($amenity);
-                }
+        // $post=Post::orderby('created_at','desc')->first();
+        //     $amenities = $request->input('amenities');
+        //         foreach($amenities as $amenity){
+        //             $post->amenities()->attach($amenity);
+        //         }
     
     return redirect('\post')->with('success','Post Created');
     
@@ -148,6 +146,7 @@ class PostController extends Controller
         if(auth()->user()->id !== $post->user_id){
             return redirect('/post')->with('error','Unauthorized Page');
         }
+        
         return view('post.edit')->with('post',$post);
     }
 
@@ -180,18 +179,7 @@ class PostController extends Controller
             //Upload Image
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         }
-        if($request->hasFile('dev_image')){
-            //Get filename with the extension
-            $filenameWithExt = $request->file('dev_image')->getClientOriginalName();
-            //Get Just filename
-            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
-            //Get just ext
-            $extension = $request->file('dev_image')->getClientOriginalExtension();
-            //Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            //Upload Image
-            $path = $request->file('dev_image')->storeAs('public/dev_images', $fileNameToStore);
-        }
+
         //Edit Post
         $post = Post::find($id);
         $post->title = $request->input('title');
@@ -199,9 +187,7 @@ class PostController extends Controller
         if($request->hasFile('cover_image')){
             $post->cover_image = $fileNameToStore;
         }
-        if($request->hasFile('dev_image')){
-            $post->dev_image = $fileNameToStore;
-        }
+        
         $post->inclusion = $request->input('inclusion');
         $post->unit_level = $request->input('unit_level');
         $post->unit_type = $request->input('unit_type');

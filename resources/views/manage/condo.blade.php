@@ -20,15 +20,25 @@
                     @endif
                     @if(count($condos) > 0)
                     @foreach($condos as $condo)
-                        <table class="table table-striped">
-                            <tr>
-                                <th>{{$condo->name}}</th>
-                            </tr>
-                        @endforeach
-                    @else
-                                <p>No posts found</p>
-                    @endif
-                    </table>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>{{$condo->name}}</th>
+                            <th>
+                            <a href="/admin/{{$condo->id}}/edit" class="btn btn-info">Edit</a>
+                            </th>
+                            <th>
+                                {!! Form::open(['action' => ['PostController@destroy', $condo->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                {{Form::hidden('_method','DELETE')}}
+                                {{Form::submit('Inactive',['class'=>'btn btn-danger'])}}
+                                {!!Form::close()!!}
+                            </th>
+                            <th></th>
+                        </tr>
+                    @endforeach
+                @else
+                            <p>No posts found</p>
+            @endif
+                </table>
                     
                 </div>
             </div>

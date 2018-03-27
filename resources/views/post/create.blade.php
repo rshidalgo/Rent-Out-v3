@@ -63,10 +63,10 @@
                             {{Form::label('price', 'Price')}}
                             {{Form::text('price', '', ['class'=>'form-control','placeholder'=>'0.0'])}}
                         </div>
-                        <div class="form-group">
+                        {{--  <div class="form-group">
                             {{Form::label('sale_price', 'Promo Price')}}
                             {{Form::text('sale_price', '', ['class'=>'form-control','placeholder'=>'0.0'])}}
-                        </div>
+                        </div>  --}}
                         <div class="form-group">
                             {{Form::file('cover_image')}}
                         </div>

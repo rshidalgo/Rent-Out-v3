@@ -57,7 +57,7 @@
                                 </th>
                                 <th></th>
                             </tr>
-                        @endforeach
+                    @endforeach
                     @else
                                 <p>No posts found</p>
                     @endif

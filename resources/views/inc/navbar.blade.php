@@ -77,10 +77,7 @@
                                                         <a class="dropdown-item" href="#">Generate Report</a>
                                                     {{--  Admin  --}}
                                                     @elseif(Auth::user()->types['id'] == 3)
-                                                        <a class="dropdown-item" href="#">Users</a>
-                                                        <a class="dropdown-item" href="/dashboard">Condo</a>
-                                                        <a class="dropdown-item" href="#">Billing</a>
-                                                        <a class="dropdown-item" href="#">Generate Report</a>
+                                                        <a class="dropdown-item" href="/admin">admin</a>
                                                     {{--  Customer  --}}
                                                     @elseif(Auth::user()->types['id'] == 1)
                                                         <a class="dropdown-item" href="#">Profile</a>
