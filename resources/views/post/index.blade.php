@@ -24,10 +24,10 @@
   <div class="row searchFilter" >
      <div class="col-sm-10" >
      <form class="form-wrap mt-4" method="GET" action="search">
-     <div class="btn-group" role="group" aria-label="Basic example">
+     <div class="btn-group" role="search" aria-label="Basic example">
        <input name="search_term" type="text" placeholder="Search" class="btn-group">
        <div class="input-group-btn" >
-       <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span><i class="pe-7s-angle-right"></i></button>
+       <button type="button" class="btn-form" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span></button>
         <div class="dropdown-menu dropdown-menu-right" >
            <ul class="category_filters" >
             <li >
@@ -50,7 +50,7 @@
             </li>
            </ul>
         </div>
-        <button id="searchBtn" type="button" class="btn btn-secondary btn-search" ><span class="glyphicon glyphicon-search" >&nbsp;</span> <span class="label-icon" >Search</span></button>
+        <button id="searchBtn" type="submit" class="btn-form" ><span class="glyphicon glyphicon-search" >&nbsp;</span> <span class="label-icon" >Search</span><i class="pe-7s-angle-right"></i></button>
        </div>
       </div>
      </div>

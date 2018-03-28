@@ -40,6 +40,10 @@ class DashboardController extends Controller
             return view('dashboard')->with('posts', $user->posts);
         }
        
-        
+    function search(Request $request){
+            $search=$request->input('search_term');
+            $output = Post::search($search)->paginate(10);
+            return view('post.index')->with('posts', $output);
+    }
     }
 }
