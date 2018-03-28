@@ -20,43 +20,19 @@
                 </div>
             </div>
             <div class="container">
-            <div class="row d-flex justify-content-center">
-  <div class="row searchFilter" >
-     <div class="col-sm-10" >
-     <form class="form-wrap mt-4" method="GET" action="search">
-     <div class="btn-group" role="search" aria-label="Basic example">
-       <input name="search_term" type="text" placeholder="Search" class="btn-group">
-       <div class="input-group-btn" >
-       <button type="button" class="btn-form" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span></button>
-        <div class="dropdown-menu dropdown-menu-right" >
-           <ul class="category_filters" >
-            <li >
-             <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" >All</label>
-            </li>
-            <li >
-             <input type="radio" name="radios" id="Avida" value="Avida" ><label class="category-label" for="Avida" >Avida</label>
-            </li>
-            <li >
-             <input type="radio" name="radios" id="Ayala" value="Ayala" ><label class="category-label" for="Ayala" >Ayala</label>
-            </li>
-            <li >
-             <input type="radio" name="radios" id="Century" value="Century" ><label class="category-label" for="Century" >Century Properties</label>
-            </li>
-            <li >
-             <input type="radio" name="radios" id="DMCI" value="DMCI" ><label class="category-label" for="DMCI" >DMCI</label>
-            </li>
-            <li >
-             <input type="radio" name="radios" id="Support" value="Support" ><label class="category-label" for="Support" >Support</label>
-            </li>
-           </ul>
-        </div>
-        <button id="searchBtn" type="submit" class="btn-form" ><span class="glyphicon glyphicon-search" >&nbsp;</span> <span class="label-icon" >Search</span><i class="pe-7s-angle-right"></i></button>
-       </div>
-      </div>
-     </div>
-     </form>
-  </div>
-</div>
+        <form class="form-wrap mt-4" name="search_item" method="get" action="search" id="filter-tables" >
+            <div class="row">
+                                <div class="col-sm-3">
+                                    <select class="input-sm form-control" placeholder="Filter">
+                                      <option>Avida</option>
+                                      <option>Ayala</option>
+                                      <option>Century Properties</option>
+                                      <option>DMCI</option>
+                                      <option>File Name 5</option>
+                                    </select>
+                                </div>
+                            </div>
+
 <br>
         <br>
         <br>
