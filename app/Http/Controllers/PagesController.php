@@ -36,7 +36,7 @@ class PagesController extends Controller
         return view ('manage.condo')->with('condos',$condos);
     }
     public function user(){
-        $users = User::get();
+        $users = User::where('types_id', '=', 2)->get();
         return view ('manage.user')->with('users',$users);
     }
 

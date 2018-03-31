@@ -72,15 +72,14 @@
                                                     {{--  Property Specialist  --}}                                                    
                                                     @if(Auth::user()->types['id'] == 2)
                                                         <a class="dropdown-item" href="/dashboard">Posts</a>
-                                                        <a class="dropdown-item" href="#">Profile</a>
-                                                        <a class="dropdown-item" href="#">Posts Status</a>
+                                                        <a class="dropdown-item" href="/profile">Profile</a>
                                                         <a class="dropdown-item" href="#">Generate Report</a>
                                                     {{--  Admin  --}}
                                                     @elseif(Auth::user()->types['id'] == 3)
                                                         <a class="dropdown-item" href="/admin">admin</a>
                                                     {{--  Customer  --}}
                                                     @elseif(Auth::user()->types['id'] == 1)
-                                                        <a class="dropdown-item" href="#">Profile</a>
+                                                        <a class="dropdown-item" href="/profile">Profile</a>
                                                         <a class="dropdown-item" href="#">History</a>
                                                     @endif
                                                     <a class="dropdown-item" href="{{ route('logout') }}"

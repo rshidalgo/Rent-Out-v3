@@ -67,6 +67,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $default_picture = "defaultprofile.jpg";
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -75,6 +76,7 @@ class RegisterController extends Controller
             'phone_num' => $data['phone_num'],
             'telephone_num' => $data['telephone_num'],
             'password' => Hash::make($data['password']),
+            'profile_picture' => $default_picture,
         ]);
     }
 }

@@ -39,7 +39,11 @@ class DashboardController extends Controller
         else{
             return view('dashboard')->with('posts', $user->posts);
         }
-       
-        
+    }
+    public function reactivate($id){
+        $post = Post::find($id);
+        $post->status = 1;
+        $post->save();
+        return view('dashboard')->with('posts', $user->posts);
     }
 }

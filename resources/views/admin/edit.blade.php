@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+<br>
+<br>
+<br>
 @section('content')
 <br>
 <br>
@@ -19,6 +21,7 @@
                         </div>
                     @endif                    
                 </div>
+                <img src="/storage/cover_images/{{$condo->cover_image}}" class="img-fluid" alt="#">                
                 <a href="/admin/condos" class="btn btn-primary">Go Back</a>
                 {!! Form::open(['action' => ['AdminController@update', $condo->id],'method'=>'POST','enctype' => 'multipart/form-data']) !!}
 
@@ -36,6 +39,29 @@
                     <div class="form-group">
                             {{Form::label('address', 'Address')}} 
                             {{Form::text('address', $condo->address, ['class'=>'form-control','placeholder'=>'Building number, Block, Street/Ave, Barangay, City'])}}
+                    </div>
+
+                    <div class="form-group">
+                        {{Form::label('city', 'City')}}
+                        {{Form::select('city', [
+                            'Manila' => 'Manila', 
+                            'Mandaluyong' => 'Mandaluyong', 
+                            'Marikina' => 'Marikina',
+                            'Pasig' => 'Pasig', 
+                            'Quezon City' => 'Quezon City', 
+                            'San Juan' => 'San Juan',
+                            'Caloocan' => 'Caloocan', 
+                            'Malabon' => 'Malabon', 
+                            'Navotas' => 'Navotas',
+                            'Valenzuela' => 'Valenzuela', 
+                            'Las Pinas' => 'Las Pinas', 
+                            'Makati' => 'Makati',
+                            'Muntinlupa' => 'Muntinlula',
+                            'Paranaque' => 'Paranaque',
+                            'Pasay' => 'Pasay',
+                            'Pateros' => 'Pateros',
+                            'Taguig' => 'Taguig'
+                            ], $condo->city)}}
                     </div>
 
                     <div class="form-group">
@@ -89,17 +115,17 @@
 
                 <div class="form-group">
                         {{Form::label('psname', 'Full Name')}} 
-                        {{Form::text('psname', $condo->pspecialist['name'], ['class'=>'form-control','placeholder'=>'First Name, Middle Initial, Last Name'])}}
+                        {{Form::text('psname', $pspecialist->name, ['class'=>'form-control','placeholder'=>'First Name, Middle Initial, Last Name'])}}
                 </div>
 
                 <div class="form-group">
                         {{Form::label('date_of_birth', 'Birthdate')}} 
-                        {{Form::date('date_of_birth', $condo->pspecialist['date_of_birth'], ['class'=>'form-control','placeholder'=>'First Name, Middle Initial, Last Name'])}}
+                        {{Form::date('date_of_birth', $pspecialist->date_of_birth, ['class'=>'form-control','placeholder'=>'First Name, Middle Initial, Last Name'])}}
                 </div>
 
                 <div class="form-group">
                         {{Form::label('email', 'Email')}} 
-                        {{Form::text('email', $condo->pspecialist['email'], ['class'=>'form-control','placeholder'=>'johndoe@gmail.com'])}}
+                        {{Form::text('email', $pspecialist->email, ['class'=>'form-control','placeholder'=>'johndoe@gmail.com'])}}
                 </div>
 
                 <div class="form-group">
@@ -107,17 +133,20 @@
                         {{Form::select('sex', [
                             'male' => 'Male', 
                             'female' => 'Female'
-                            ], $condo->pspecialist['gender'])}}
+                            ], $pspecialist->gender)}}
                 </div>
 
                 <div class="form-group">
                         {{Form::label('mobnum', 'Mobile No.')}} 
-                        {{Form::text('mobnum', $condo->pspecialist['phone_num'], ['class'=>'form-control','placeholder'=>'+63 932-842-7121'])}}
+                        {{Form::text('mobnum', $pspecialist->phone_num, ['class'=>'form-control'])}}
                 </div>
 
                 <div class="form-group">
                         {{Form::label('telnum', 'Telephone No.')}} 
-                        {{Form::text('telnum', $condo->pspecialist['telephone_num'], ['class'=>'form-control','placeholder'=>'(02) 881-0240'])}}
+                        {{Form::text('telnum', $pspecialist->telephone_num, ['class'=>'form-control'])}}
+                </div>
+                <div class="form-group">
+                    {{Form::file('cover_image')}}
                 </div>
 
                 {{Form::hidden('_method','PUT')}}

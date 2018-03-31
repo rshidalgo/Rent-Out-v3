@@ -47,6 +47,9 @@
 <body>
     <div id="app">
         @include('inc.navbar')
+        <br>
+        <br>
+        <br>
         @include('inc.messages')
         @yield('content')
     </div>

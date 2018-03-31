@@ -37,6 +37,29 @@
                             {{Form::label('address', 'Address')}} 
                             {{Form::text('address', '', ['class'=>'form-control','placeholder'=>'Building number, Block, Street/Ave, Barangay, City'])}}
                     </div>
+                    
+                    <div class="form-group">
+                        {{Form::label('city', 'City')}}
+                        {{Form::select('city', [
+                            'Manila' => 'Manila', 
+                            'Mandaluyong' => 'Mandaluyong', 
+                            'Marikina' => 'Marikina',
+                            'Pasig' => 'Pasig', 
+                            'Quezon City' => 'Quezon City', 
+                            'San Juan' => 'San Juan',
+                            'Caloocan' => 'Caloocan', 
+                            'Malabon' => 'Malabon', 
+                            'Navotas' => 'Navotas',
+                            'Valenzuela' => 'Valenzuela', 
+                            'Las Pinas' => 'Las Pinas', 
+                            'Makati' => 'Makati',
+                            'Muntinlupa' => 'Muntinlula',
+                            'Paranaque' => 'Paranaque',
+                            'Pasay' => 'Pasay',
+                            'Pateros' => 'Pateros',
+                            'Taguig' => 'Taguig'
+                            ], 'Manila')}}
+                    </div>
 
                     <div class="form-group">
                             {{Form::label('description', 'Short Description')}} 
@@ -94,8 +117,8 @@
                 <div class="form-group">
                         {{Form::label('sex', 'Sex')}}
                         {{Form::select('sex', [
-                            'male' => 'Male', 
-                            'female' => 'Female'
+                            'Male' => 'Male', 
+                            'Female' => 'Female'
                             ], 'male')}}
                 </div>
 
@@ -107,6 +130,10 @@
                 <div class="form-group">
                         {{Form::label('telnum', 'Telephone No.')}} 
                         {{Form::text('telnum', '', ['class'=>'form-control','placeholder'=>'(02) 881-0240'])}}
+                </div>
+
+                <div class="form-group">
+                    {{Form::file('cover_image')}}
                 </div>
 
                 {{Form::submit('Submit', ['class'=>'btn btn-primary '])}}

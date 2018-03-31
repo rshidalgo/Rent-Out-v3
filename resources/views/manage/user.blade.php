@@ -11,24 +11,53 @@
             <div class="card card-default">
                 <a href="/admin" class="btn btn-primary">Go Back</a>
                 <div class="card-header">Dashboard</div>
-                    <a href="/admin/create" class="btn btn-primary">Manage Users</a>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
+                    <div class="card-header">Paid</div>
                     @if(count($users) > 0)
-                    @foreach($users as $user)
-                        <table class="table table-striped">
-                            <tr>
-                                <th>{{$user->name}}</th>
-                            </tr>
+                        @foreach($users as $user)
+                        @if($user->condos['status'] == 1)
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>{{$user->name}}</th>
+                                    <th>{{$user->condos['name']}}</th>
+                                    <th>Current Rents: {{$user->condos['reserved']}}</th>
+                                    <th>Total Rents: {{$user->condos['total_reserves']}}</th>
+
+                                    <th>
+                                        {!! Form::open(['action' => ['AdminController@status', $user->id],'method'=>'GET', 'class'=>'pull-right']) !!}
+                                        {{Form::submit('Block',['class'=>'btn btn-danger'])}}
+                                        {!!Form::close()!!}
+                                    </th>
+                                </tr>
+                            </table>
+                        @endif
                         @endforeach
-                    @else
-                                <p>No posts found</p>
+
+                    <div class="card-header">Unpaid/Block</div>
+                        @foreach($users as $user)
+                            @if($user->condos['status'] == 0)
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>{{$user->name}}</th>
+                                        <th>{{$user->condos['name']}}</th>
+                                        <th>Current Rents: {{$user->condos['reserved']}}</th>
+                                        <th>Total Rents: {{$user->condos['total_reserves']}}</th>
+                                        <th>
+                                            {!! Form::open(['action' => ['AdminController@status', $user->id],'method'=>'GET', 'class'=>'pull-right']) !!}
+                                            {{Form::submit('Paid',['class'=>'btn btn-primary'])}}
+                                            {!!Form::close()!!}
+                                        </th>
+                                    </tr>
+                                </table>
+                            @endif
+                        @endforeach
                     @endif
-                    </table>
+                    
                     
                 </div>
             </div>

@@ -32,42 +32,22 @@
 
 <body>
     @include('inc.navbar')
+    <br>
+    <br>
+    <br>
     <!--============================= BOOKING =============================-->
     <div>
         <!-- Swiper -->
         <div class="swiper-container">
             <div class="swiper-wrapper">
-
+                {{--  add the foreach here  --}}
+                @foreach($images as $image)
                 <div class="swiper-slide">
-                    <a href="/images/reserve-slide2.jpg" class="grid image-link">
-                        <img src="/images/reserve-slide2.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="/images/reserve-slide1.jpg" class="grid image-link">
-                        <img src="/images/reserve-slide1.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="/images/reserve-slide3.jpg" class="grid image-link">
-                        <img src="/images/reserve-slide3.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="/images/reserve-slide1.jpg" class="grid image-link">
-                        <img src="/images/reserve-slide1.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="/images/reserve-slide2.jpg" class="grid image-link">
-                        <img src="/images/reserve-slide2.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="/images/reserve-slide3.jpg" class="grid image-link">
-                        <img src="/images/reserve-slide3.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
+                        <a href="/images/reserve-slide2.jpg" class="grid image-link">
+                            <img src="/storage/{{$image->cover_image}}" class="img-fluid" alt="#">
+                        </a>
+                    </div>
+                @endforeach
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination swiper-pagination-white"></div>
@@ -83,21 +63,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <h5>{{$post->title}}</h5>
-                    <p><span>$$$</span>$$</p>
-                    <p class="reserve-description">Written on {{$post->created_at}} by {{$post->user['name']}}</p>
+                    <p><span>₱</span>{{$post->price}}</p>
+                    <p class="reserve-description">Posted on {{$post->created_at}} by {{$post->user['name']}}</p>
                 </div>
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
-                        <div class="reserve-rating">
-                            <span>9.5</span>
-                        </div>
-                        <div class="review-btn">
-                            <a href="#" class="btn btn-outline-danger">WRITE A REVIEW</a>
-                            <span>34 reviews</span>
-                        </div>
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="/book" class="btn btn-danger">BOOK NOW</a>
+                                <a href="/book" class="btn btn-danger">Bookmark</a>
                             </div>
                         </div>
                     </div>
@@ -113,50 +86,21 @@
                 <div class="col-md-8 responsive-wrap">
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->inclusion!!}</p>
-                        <p>{!!$post->price!!}</p>
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->body!!}</p>
-                        <p>{!!$post->body!!}</p>
+                        <p>{!!$post->condos['description']!!}</p>
+                        <br>
                         <p>{!!$post->body!!}</p>
 
                         </div>
+
                         <div class="row">
+                            @foreach($amenities as $amenity)
                             <div class="col-md-4">
                                 <label class="custom-checkbox">
-                        <span class="ti-check-box"></span>
-                        <span class="custom-control-description">Bike Parking</span>
-                      </label> </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                       <span class="ti-check-box"></span>
-                       <span class="custom-control-description">Wireless Internet  </span>
-                     </label>
+                                    <span class="ti-check-box"></span>
+                                    <span class="custom-control-description">{{$amenity->name}}</span>
+                                </label> 
                             </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                     <span class="ti-check-box"></span>
-                     <span class="custom-control-description">Smoking Allowed  </span>
-                   </label> </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                    <span class="ti-check-box"></span>
-                    <span class="custom-control-description">Street Parking</span>
-                  </label>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                   <span class="ti-check-box"></span>
-                   <span class="custom-control-description">Special</span>
-                 </label> </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                  <span class="ti-check-box"></span>
-                  <span class="custom-control-description">Accepts Credit cards</span>
-                </label>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     {{--  Booking Section  --}}
@@ -201,47 +145,44 @@
                 </div>
                 <div class="col-md-4 responsive-wrap">
                     <div class="contact-info">
-                        <img src="/images/map.jpg" class="img-fluid" alt="#">
+                        <img src="/storage/cover_images/{{$post->condos['cover_image']}}" class="img-fluid" alt="#">
                         <div class="address">
                             <span class="icon-location-pin"></span>
-                            <p> Doyers St<br> New York, NY 10013<br> b/t Division St & St James Pl <br> Chinatown, Civic Center</p>
+                            <p>{{$post->condos['address']}}</p>
                         </div>
-                        <div class="address">
-                            <span class="icon-screen-smartphone"></span>
-                            <p> +44 20 7336 8898</p>
-                        </div>
-                        <div class="address">
-                            <span class="icon-link"></span>
-                            <p>https://www.dmcihomes.com/prisma-residences</p>
-                        </div>
-                        <div class="address">
-                            <span class="icon-clock"></span>
-                            <p>Mon - Sun 09:30 am - 05:30 pm <br>
-                                <span class="open-now">INQUIRE NOW!</span></p>
-                        </div>
-                        <a href="#" class="btn btn-outline-danger btn-contact">SEND A MESSAGE</a>
                     </div>
                     <div class="follow">
                         <div class="follow-img">
-                            <img src="/images/follow-img.jpg" class="img-fluid" alt="#">
-                            <h6>Christine Evans</h6>
-                            <span>New York</span>
+                            <img src="/storage/profile/{{$post->user['profile_picture']}}" class="img-fluid" alt="#">
+                            <h6>{{$post->user['name']}}</h6>
+                            <span>Property Specialist</span>
                         </div>
-                        <ul class="social-counts">
+                        <div class="address">
+                            <span class="icon-screen-smartphone"></span>
+                        <p>{{$post->user['phone_num']}}</p>
+                        </div>
+                        <div class="address">
+                            <span class="icon-screen-smartphone"></span>
+                            <p>(02) {{$post->user['telephone_num']}}</p>
+                        </div>
+                        <div class="address">
+                            <span class="icon-link"></span>
+                            <p>{{$post->user['email']}} <br></p>
+                        </div>
+                        {{-- <ul class="social-counts">
                             <li>
                                 <h6>26</h6>
-                                <span>Listings</span>
+                                <span>Posts</span>
                             </li>
                             <li>
                                 <h6>326</h6>
-                                <span>Followers</span>
+                                <span>Available</span>
                             </li>
                             <li>
-                                <h6>12</h6>
-                                <span>Followers</span>
+                                <h6>326</h6>
+                                <span>Sold</span>
                             </li>
-                        </ul>
-                        <a href="#">FOLLOW</a>
+                        </ul> --}}
                     </div>
                 </div>
             </div>

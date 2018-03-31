@@ -11,7 +11,7 @@
             <div class="card card-default">
                 <a href="/admin" class="btn btn-primary">Go Back</a>
                 <div class="card-header">Dashboard</div>
-                    <a href="/admin/create" class="btn btn-primary">Manage Condominiums</a>
+                    <a href="/admin/create" class="btn btn-primary">Add Condominiums</a>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">

@@ -1,22 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Admin;
 use App\User;
 use App\Condo;
+use App\Developer;
 use App\amenities;
-use Illuminate\Http\Request;
+use App\image;
 use Illuminate\Support\Facades\Hash;
 use Auth;
-
+use Storage;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +20,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->types['id'] != 3){
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
+    
         return view('admin.index');
     }
 
@@ -37,9 +31,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        if(auth()->user()->types['id'] != 3){
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
+   
         return view('admin.create');
     }
 
@@ -51,9 +43,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        if(auth()->user()->types['id'] != 3){
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
+    
         $this->validate($request, [
             'developers' => 'required',
             'name' => 'required',
@@ -65,9 +55,24 @@ class AdminController extends Controller
             'email' => 'required',
             'sex' => 'required',
             'mobnum' => 'required',
-            'telnum' => 'required'
+            'telnum' => 'required',
+            'cover_image' => 'required'
         ]);
 
+        if($request->hasFile('cover_image')){
+            //Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            //Get Just filename
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            //Get just ext
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        } else{
+            $fileNameToStore = 'noimage.jpg';
+        }
         $condo = new Condo;
         $condo->developer_id = $request->input('developers');
         $condo->name = $request->input('name');
@@ -75,8 +80,11 @@ class AdminController extends Controller
         $condo->description = $request->input('description');
         $condo->license_no = $request->input('license');
         $condo->tin = $request->input('tin');
+        $condo->cover_image = $fileNameToStore;
+        $condo->city = $request->input('city');
         $condo->save();
     
+        $default_picture = "defaultprofile.jpg";
         User::create([
             'name' => $request->input('psname'),
             'email' => $request->input('email'),
@@ -85,6 +93,7 @@ class AdminController extends Controller
             'phone_num' => $request->input('mobnum'),
             'telephone_num' => $request->input('telnum'),
             'password' => Hash::make('rentoutpassword123'),
+            'profile_picture' => $default_picture,
         ]);
         
         $type = User::orderby('created_at','desc')->first();
@@ -93,6 +102,10 @@ class AdminController extends Controller
         $condo = Condo::orderby('created_at','desc')->first();
         $type->condos_id = $condo->id;
         $type->save();
+
+        $condo2 = Condo::find($condo->id);
+        $condo2->user_id = $type->id;
+        $condo2->save();
 
         $amenity_input = $request->input('amenities');
 
@@ -112,55 +125,60 @@ class AdminController extends Controller
         }
 
         return redirect('/admin')->with('success', 'Creat successful');
-
-       
-        }
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show($id)
     {
-        if(auth()->user()->types['id'] != 3){
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
+  
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        if(auth()->user()->types['id'] != 3){
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
+ 
         $condo = Condo::find($id);
-
-        return view('admin.edit')->with('condo',$condo);
+        $pspecialist = User::find($condo->user_id);
+        return view('admin.edit')->with('condo',$condo)->with('pspecialist',$pspecialist);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        if(auth()->user()->types['id'] != 3){
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }   
+
         $this->validate($request, [
         'developers' => 'required',
         'name' => 'required'
         ]);
+
+        if($request->hasFile('cover_image')){
+            //Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            //Get Just filename
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            //Get just ext
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        }
 
         $condo = Condo::find($id);
         $condo->developer_id = $request->input('developers');
@@ -169,10 +187,12 @@ class AdminController extends Controller
         $condo->description = $request->input('description');
         $condo->license_no = $request->input('license');
         $condo->tin = $request->input('tin');
-         
+        if($request->hasFile('cover_image')){
+            $condo->cover_image = $fileNameToStore;
+        }
         $condo->save();
 
-        $user = User::find($condo->pspecialist['id']);
+        $user = User::find($condo->user_id);
         $user->name = $request->input('psname');
         $user->email = $request->input('email');
         $user->gender = $request->input('sex');
@@ -215,7 +235,7 @@ class AdminController extends Controller
         }
         else{
             foreach($amenity_input as $amenity2){
-                $condo->amenities()->attach($amenity);
+                $condo->amenities()->attach($amenity2);
             }
         }
         return redirect('\admin\condos')->with('success','Condominium Updated');
@@ -225,20 +245,29 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
-        if(auth()->user()->types['id'] != 3){
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
-        $post = Post::find($id);
-        $post->delete();
-        $user = User::find($condo->pspecialist['id']);
-        $user->delete();
-
-        return redirect('\admin\condos')->with('success','Condominium Updated');
+        //
     }
-
+    public function users_index(){
+        $users = User::where('types_id', '=', 2)->get();
+        return view ('manage.user')->with('users',$users);
+    }
+    public function status($id){
+        $pspecialist = User::find($id);
+        $condo = Condo::find($pspecialist->condos['id']);
+        
+        if($condo->status == 0){
+            $condo->status = 1;
+            $condo->save();
+        }
+        elseif($condo->status == 1){
+            $condo->status = 0;
+            $condo->save();
+        }
+        return redirect('\admin\users')->with('success','Transaction Complete');
+    }
 }
