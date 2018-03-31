@@ -30,6 +30,9 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany('App\Post');
     }
+    public function reports(){
+        return $this->hasMany('App\Report');
+    }
     public function types(){
         return $this->belongsTo(Types::class);
     }

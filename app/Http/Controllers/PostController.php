@@ -10,6 +10,8 @@ use App\Condo;
 use App\Types;
 use App\User;
 use App\image;
+use App\Report;
+
 use Auth;
 
 
@@ -219,9 +221,7 @@ class PostController extends Controller
             $post->save();
             return redirect('\dashboard')->with('success','Post Removed');
         }
-        elseif($request->remove == false){
-            return redirect('\dashboard')->with('error','Please Check The Checkbox To Remove Post');
-        }
+
         $post = Post::find($id);
         if($post->status == 0){
             $post->status = 1;
@@ -235,6 +235,16 @@ class PostController extends Controller
             }
             $condo->save();
             $post->status = 0;
+
+            $report = new Report;
+            $report->post_name = $post->title;
+            $report->post_condo = auth()->user()->condos['name'];
+            $report->user_id = $post->user_id;
+            $report->user_name = auth()->user()->name;
+            $report->post_value = $post->price;
+            $report->reserved_at = $post->created_at;
+            $report->save();
+
         }
         $post->save();
         return redirect('\dashboard')->with('success','Post Deactivated');

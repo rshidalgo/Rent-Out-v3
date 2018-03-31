@@ -38,12 +38,12 @@
                                         {!!Form::close()!!}
                                     </th>
                                     <th>
-                                            {!! Form::open(['action' => ['PostController@destroy', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
-                                            {{ Form::checkbox('remove', true) }}
-                                            {{Form::hidden('_method','DELETE')}}
-                                            {{Form::submit('Remove',['class'=>'btn btn-danger'])}}
-                                            {!!Form::close()!!}
-                                        </th>
+                                        {!! Form::open(['action' => ['PostController@destroy', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                        {{ Form::checkbox('remove', true) }}
+                                        {{Form::hidden('_method','DELETE')}}
+                                        {{Form::submit('Remove',['class'=>'btn btn-danger'])}}
+                                        {!!Form::close()!!}
+                                    </th>
                                 </tr>
                                 @endif
                         @endforeach
@@ -68,6 +68,13 @@
                                         {!! Form::open(['action' => ['PostController@destroy', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
                                         {{Form::hidden('_method','DELETE')}}
                                         {{Form::submit('Reactivate',['class'=>'btn btn-danger'])}}
+                                        {!!Form::close()!!}
+                                    </th>
+                                    <th>
+                                        {!! Form::open(['action' => ['PostController@destroy', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                        {{ Form::checkbox('remove', true) }}
+                                        {{Form::hidden('_method','DELETE')}}
+                                        {{Form::submit('Remove',['class'=>'btn btn-danger'])}}
                                         {!!Form::close()!!}
                                     </th>
                                 </tr>

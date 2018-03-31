@@ -270,4 +270,18 @@ class AdminController extends Controller
         }
         return redirect('\admin\users')->with('success','Transaction Complete');
     }
+
+    public function condo_status($id){
+        $condo = Condo::find($id);
+        
+        if($condo->status == 0){
+            $condo->status = 1;
+            $condo->save();
+        }
+        elseif($condo->status == 1){
+            $condo->status = 0;
+            $condo->save();
+        }
+        return redirect('\admin\condos')->with('success','Transaction Complete');
+    }
 }

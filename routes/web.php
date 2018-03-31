@@ -37,6 +37,8 @@ Route::get('/admin/condos', 'PagesController@condo');
 Route::resource('post', 'PostController');
 Route::get('/admin/users', 'AdminController@users_index');
 Route::get('/admin/users/{admin}', 'AdminController@status');
+Route::post('/admin/condos/{admin}', 'AdminController@condo_status');
+
 Route::resource('admin', 'AdminController');
 Route::get('search', 'PostController@search')->name('search');
 
@@ -51,4 +53,5 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/profile', 'UserController@profile');
 Route::post('/profile/update', 'UserController@update');
 
-Route::get('report', 'ExcelController@create');
+Route::get('excel', 'ExcelController@export');
+Route::get('/report', 'ExcelController@excel');

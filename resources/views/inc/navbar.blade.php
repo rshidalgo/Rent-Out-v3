@@ -73,7 +73,7 @@
                                                     @if(Auth::user()->types['id'] == 2)
                                                         <a class="dropdown-item" href="/dashboard">Posts</a>
                                                         <a class="dropdown-item" href="/profile">Profile</a>
-                                                        <a class="dropdown-item" href="#">Generate Report</a>
+                                                        <a class="dropdown-item" href="/excel">Generate Report</a>
                                                     {{--  Admin  --}}
                                                     @elseif(Auth::user()->types['id'] == 3)
                                                         <a class="dropdown-item" href="/admin">admin</a>
