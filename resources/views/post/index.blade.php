@@ -1,4 +1,10 @@
 @extends('layouts.app')
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="search-filter.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <!--============================= FEATURED PLACES =============================-->
 <section class="main-block light-bg" name='test'>
         <br>
@@ -9,10 +15,28 @@
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <div class="styled-heading">
-                        <h3>Featured Places</h3>
+                        <h3>Featured Units</h3>
                     </div>
                 </div>
             </div>
+            <div class="container">
+        <form class="form-wrap mt-4" name="search_item" method="get" action="search" id="filter-tables" >
+            <div class="row">
+                                <div class="col-sm-3">
+                                    <select class="input-sm form-control" placeholder="Filter">
+                                      <option>Avida</option>
+                                      <option>Ayala</option>
+                                      <option>Century Properties</option>
+                                      <option>DMCI</option>
+                                      <option>File Name 5</option>
+                                    </select>
+                                </div>
+                            </div>
+
+<br>
+        <br>
+        <br>
+        <br>
             <div class="row">
                 @if(count($posts) > 0)
                     @foreach($posts as $post)

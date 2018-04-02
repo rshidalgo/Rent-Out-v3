@@ -1,15 +1,19 @@
 @extends('layouts.app')
+<br>
+<br>
+<br>
+<br>
 <body>
     @include('inc.navbar')
-    <!--============================= BOOKING =============================-->
+    <!--============================= SWIPER =============================-->
     <div>
         <!-- Swiper -->
         <div class="swiper-container">
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
-                    <a href="/storage/developers/avida1.jpg" class="grid image-link">
-                        <img src="/storage/developers/avida.png" class="img-fluid" alt="#">
+                    <a href="/storage/logo/Logo4.png" class="grid image-link">
+                        <img src="/storage/logo/Logo4.png" class="img-fluid" alt="#">
                     </a>
                 </div>
                 <div class="swiper-slide">
@@ -38,16 +42,28 @@
                     </a>
                 </div>
             </div>
+            <h1>{{$title}}</h1>
+<p align="center">The purpose of the Rentout web application is to alleviate the issues or pain points 
+determined and verified by the respondents on the first survey. This does not only address 
+the pain points but, this will also bring in enhanced user experience.  
+ 
+The Rentout web application is a cool and easy way to search and advertise condominium 
+units. By using the GPS technology, the searching methods has been taken up to a whole new 
+level; displaying search results within x kilometer radius. </p>
+</div>
             <!-- Add Pagination -->
             <div class="swiper-pagination swiper-pagination-white"></div>
             <!-- Add Arrows -->
             <div class="swiper-button-next swiper-button-white"></div>
             <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="container">
+
         </div>
     </div>
-    <!--//END BOOKING -->
-
+ 
+</body>
 @section('content')
+<div class="container">
 <h1>{{$title}}</h1>
 <p align="center">The purpose of the Rentout web application is to alleviate the issues or pain points 
 determined and verified by the respondents on the first survey. This does not only address 
@@ -56,4 +72,5 @@ the pain points but, this will also bring in enhanced user experience.
 The Rentout web application is a cool and easy way to search and advertise condominium 
 units. By using the GPS technology, the searching methods has been taken up to a whole new 
 level; displaying search results within x kilometer radius. </p>
+</div>
 @endsection

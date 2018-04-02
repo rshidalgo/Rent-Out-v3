@@ -271,5 +271,4 @@ class PostController extends Controller
         $output = Post::search($search)->paginate(10);
         return view('post.index')->with('posts', $output);
     }
-    
 }

@@ -31,12 +31,13 @@
 </section>
 @yield('test')
 <!--============================= FEATURED PLACES =============================-->
+
 <section class="main-block light-bg">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <div class="styled-heading">
-                    <h3>Featured Places</h3>
+                    <h3>Featured Units</h3>
                 </div>
             </div>
         </div>
@@ -90,13 +91,13 @@
     </div>
 </section>
 
-    <!--============================= CATEGORIES =============================-->
+    <!--============================= REAL ESTATE DEVELOPERS =============================-->
     <section class="main-block">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <div class="styled-heading">
-                        <h3>Browse Categories</h3>
+                        <h3>Real Estate Developers</h3>
                     </div>
                 </div>
             </div>
@@ -104,6 +105,30 @@
                 <div class="featured-place-wrap">
                     <a href="/services">
                         <img src="/storage/developers/avida.png" class="img-fluid" alt="#">
+                        {{--  add rating data here  --}}
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 category-responsive">
+                <div class="featured-place-wrap">
+                    <a href="/services">
+                        <img src="/storage/developers/ayala.JPG" class="img-fluid" alt="#">
+                        {{--  add rating data here  --}}
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 category-responsive">
+                <div class="featured-place-wrap">
+                    <a href="/services">
+                        <img src="/storage/developers/century.png" class="img-fluid" alt="#">
+                        {{--  add rating data here  --}}
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 category-responsive">
+                <div class="featured-place-wrap">
+                    <a href="/services">
+                        <img src="/storage/developers/dmci.png" class="img-fluid" alt="#">
                         {{--  add rating data here  --}}
                     </a>
                 </div>
@@ -142,6 +167,7 @@
                         <p>Copyright &copy; 2018 Listing. All rights reserved | This project is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Rentout.inc</a></p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <ul>
+                            <p>Contact us : </p>
                             <li><a href="#"><span class="ti-facebook"></span></a></li>
                             <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
                             <li><a href="#"><span class="ti-instagram"></span></a></li>
