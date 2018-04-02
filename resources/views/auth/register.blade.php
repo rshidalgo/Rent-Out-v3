@@ -12,7 +12,7 @@
                 <div class="card-header">Register</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -47,8 +47,10 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
 
                             <div class="col-md-6">
-                                <input id="gender" type="text" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}" required>
-
+                                <select id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}" required>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
                                 @if ($errors->has('gender'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('gender') }}</strong>

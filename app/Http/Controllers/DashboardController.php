@@ -39,11 +39,12 @@ class DashboardController extends Controller
         else{
             return view('dashboard')->with('posts', $user->posts);
         }
-       
-    function search(Request $request){
-            $search=$request->input('search_term');
-            $output = Post::search($search)->paginate(10);
-            return view('post.index')->with('posts', $output);
+
     }
+    public function reactivate($id){
+        $post = Post::find($id);
+        $post->status = 1;
+        $post->save();
+        return view('dashboard')->with('posts', $user->posts);
     }
 }

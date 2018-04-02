@@ -21,9 +21,7 @@
 
                 <a href="/admin/condos" class="btn btn-danger">Manage Condominiums</a>
                 <br>
-                <a href="/admin/users" class="btn btn-danger">Manage Users</a>
-
-
+                <a href="/admin/users" class="btn btn-danger">Manage Property Specialists</a>
             </div>
         </div>
     </div>
