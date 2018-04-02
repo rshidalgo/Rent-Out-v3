@@ -36,8 +36,10 @@ Route::get('/admin/condos', 'PagesController@condo');
 
 Route::resource('post', 'PostController');
 Route::get('/admin/users', 'AdminController@users_index');
-Route::get('/admin/users/{admin}', 'AdminController@status');
-Route::post('/admin/condos/{admin}', 'AdminController@condo_status');
+Route::get('paid{admin}', 'AdminController@user_paid');
+Route::get('block{admin}', 'AdminController@user_block');
+Route::post('activate{admin}', 'AdminController@condo_active');
+Route::post('deactivate{admin}', 'AdminController@condo_inactive');
 
 Route::resource('admin', 'AdminController');
 Route::get('search', 'PostController@search')->name('search');

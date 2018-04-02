@@ -256,32 +256,32 @@ class AdminController extends Controller
         $users = User::where('types_id', '=', 2)->get();
         return view ('manage.user')->with('users',$users);
     }
-    public function status($id){
+    public function user_paid($id){
         $pspecialist = User::find($id);
         $condo = Condo::find($pspecialist->condos['id']);
-        
-        if($condo->status == 0){
-            $condo->status = 1;
-            $condo->save();
-        }
-        elseif($condo->status == 1){
-            $condo->status = 0;
-            $condo->save();
-        }
-        return redirect('\admin\users')->with('success','Transaction Complete');
+        $condo->status = 1;
+        $condo->save();
+        return redirect('\admin\users')->with('success','Paid');
     }
 
-    public function condo_status($id){
+    public function user_block($id){
+        $pspecialist = User::find($id);
+        $condo = Condo::find($pspecialist->condos['id']);
+        $condo->status = 0;
+        $condo->save();
+        return redirect('\admin\users')->with('success','Blocked');
+    }
+
+    public function condo_active($id){
         $condo = Condo::find($id);
-        
-        if($condo->status == 0){
-            $condo->status = 1;
-            $condo->save();
-        }
-        elseif($condo->status == 1){
-            $condo->status = 0;
-            $condo->save();
-        }
-        return redirect('\admin\condos')->with('success','Transaction Complete');
+        $condo->status = 1;
+        $condo->save();
+        return redirect('\admin\condos')->with('success','Condo Active');
+    }
+    public function condo_inactive($id){
+        $condo = Condo::find($id);
+        $condo->status = 0;
+        $condo->save();
+        return redirect('\admin\condos')->with('success','Condo Inactive');
     }
 }

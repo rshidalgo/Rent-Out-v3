@@ -20,6 +20,7 @@ class Email extends Controller
             $message->from('elliotwalteriq@gmail.com', 'Rentout Property Specialist');
     
             $message->to('elliotwalteriq@gmail.com')->subject('Site Visit Request');
+
     
         });
     

@@ -19,9 +19,8 @@
                         </div>
                     @endif
                 <div class="card-header">Active</div>
-                @if(count($condos) > 0)
-                    @foreach($condos as $condo)
-                    @if($condo->status == 1)
+                @if(count($condos_active) > 0)
+                    @foreach($condos_active as $condo)
                     <table class="table table-striped">
                         <tr>
                             <th>{{$condo->name}}</th>
@@ -29,40 +28,35 @@
                             <a href="/admin/{{$condo->id}}/edit" class="btn btn-info">Edit</a>
                             </th>
                             <th>
-                                {!! Form::open(['action' => ['AdminController@condo_status', $condo->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                {!! Form::open(['action' => ['AdminController@condo_inactive', $condo->id],'method'=>'POST', 'class'=>'pull-right']) !!}
                                 {{Form::submit('Inactive',['class'=>'btn btn-danger'])}}
                                 {!!Form::close()!!}
                             </th>
                             <th></th>
                         </tr>
-                    @endif
-                    @endforeach
-                @else
-                            <p>No posts found</p>
                     </table>
+                    @endforeach
                 @endif
                 <div class="card-header">Inactive</div>
-                    @if(count($condos) > 0)
-                        @foreach($condos as $condo)
+                    @if(count($condos_inactive) > 0)
+                        @foreach($condos_inactive as $condo)
                             <table class="table table-striped">
-                                @if($condo->status == 0)
                                 <tr>
                                     <th>{{$condo->name}}</th>
                                     <th>
                                     <a href="/post/{{$condo->id}}/edit" class="btn btn-info">Edit</a>
                                     </th>
                                     <th>
-                                        {!! Form::open(['action' => ['PostController@destroy', $condo->id],'method'=>'POST', 'class'=>'pull-right']) !!}
-                                        {{Form::hidden('_method','DELETE')}}
+                                        {!! Form::open(['action' => ['AdminController@condo_active', $condo->id],'method'=>'POST', 'class'=>'pull-right']) !!}
                                         {{Form::submit('Reactivate',['class'=>'btn btn-danger'])}}
                                         {!!Form::close()!!}
                                     </th>
                     
                                 </tr>
-                                @endif
+                            </table>
                         @endforeach
                     @endif
-                            </table>
+                            
                 </div>
             </div>
         </div>
