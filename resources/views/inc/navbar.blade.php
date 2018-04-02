@@ -33,7 +33,7 @@
                     <div class="col-md-12 dark-bg">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <a class="navbar-brand" href="{{ url('/') }}">
-                                {{ config('app.name', 'Laravel') }}
+                                {{ config('app.name', 'RentOut') }}
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -72,18 +72,14 @@
                                                     {{--  Property Specialist  --}}                                                    
                                                     @if(Auth::user()->types['id'] == 2)
                                                         <a class="dropdown-item" href="/dashboard">Posts</a>
-                                                        <a class="dropdown-item" href="#">Profile</a>
-                                                        <a class="dropdown-item" href="#">Posts Status</a>
-                                                        <a class="dropdown-item" href="#">Generate Report</a>
+                                                        <a class="dropdown-item" href="/profile">Profile</a>
+                                                        <a class="dropdown-item" href="/excel">Generate Report</a>
                                                     {{--  Admin  --}}
                                                     @elseif(Auth::user()->types['id'] == 3)
-                                                        <a class="dropdown-item" href="#">Users</a>
-                                                        <a class="dropdown-item" href="/dashboard">Condo</a>
-                                                        <a class="dropdown-item" href="#">Billing</a>
-                                                        <a class="dropdown-item" href="#">Generate Report</a>
+                                                        <a class="dropdown-item" href="/admin">admin</a>
                                                     {{--  Customer  --}}
                                                     @elseif(Auth::user()->types['id'] == 1)
-                                                        <a class="dropdown-item" href="#">Profile</a>
+                                                        <a class="dropdown-item" href="/profile">Profile</a>
                                                         <a class="dropdown-item" href="#">History</a>
                                                     @endif
                                                     <a class="dropdown-item" href="{{ route('logout') }}"

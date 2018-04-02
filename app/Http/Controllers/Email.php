@@ -15,11 +15,12 @@ class Email extends Controller
             'name' => "Unit Site Visit",
         );
     
-        Mail::send('/welcome', $data, function ($message) {
+        Mail::send('/email/sitevisit', $data, function ($message) {
     
             $message->from('elliotwalteriq@gmail.com', 'Rentout Property Specialist');
     
             $message->to('elliotwalteriq@gmail.com')->subject('Site Visit Request');
+
     
         });
     
@@ -28,13 +29,13 @@ class Email extends Controller
     }
 
 
-    public function book() {
+    public function book(Request $request) {
 
         $data = array(
             'name' => "Unit Booking",
         );
     
-        Mail::send('/welcome', $data, function ($message) {
+        Mail::send('/email/book', $data, function ($message) {
     
             $message->from('elliotwalteriq@gmail.com', 'Rentout Property Specialist');
     
