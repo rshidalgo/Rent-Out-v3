@@ -30,6 +30,7 @@
 
                                     <th>
                                         {!! Form::open(['action' => ['AdminController@user_block', $user->id],'method'=>'GET', 'class'=>'pull-right']) !!}
+                                        {{ Form::checkbox('checkbox', true) }}      
                                         {{Form::submit('Block',['class'=>'btn btn-danger'])}}
                                         {!!Form::close()!!}
                                     </th>
@@ -49,6 +50,7 @@
                                         <th>Total Rents: {{$user->condos['total_reserves']}}</th>
                                         <th>
                                             {!! Form::open(['action' => ['AdminController@user_paid', $user->id],'method'=>'GET', 'class'=>'pull-right']) !!}
+                                            {{ Form::checkbox('checkbox', true) }}      
                                             {{Form::submit('Paid',['class'=>'btn btn-primary'])}}
                                             {!!Form::close()!!}
                                         </th>

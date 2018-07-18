@@ -7,7 +7,7 @@ Author: Surjith S M
    GLOBAL STYLES
    ============================================================== */
 body {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Arveni', sans-serif; }
 
 h1 {
   font-size: 72px;
@@ -156,7 +156,7 @@ p {
   padding: 0 8px 0 0; }
 
 .slider {
-  background: url(../images/0300090b.jpg) no-repeat;
+  background: url(../images/bg5.jpg) no-repeat;
   background-size: cover;
   min-height: 800px; }
   @media (max-width: 992px) {
@@ -184,7 +184,7 @@ p {
   text-align: center; }
 
 .slider-content_wrap h5 {
-  color: #909090;
+  color: #b3b3b3;
   font-weight: 400;
   margin: 24px 0; }
 
@@ -231,7 +231,7 @@ p {
   font-size: 18px;
   padding: 17px;
   width: 27%;
-  background: #ff3a6d;
+  background: #00b36b;
   color: #ffffff;
   border: none;
   border-top-right-radius: 3px;
@@ -286,7 +286,7 @@ p {
       content: "";
       width: 60px;
       height: 3px;
-      background: #ff3a6d;
+      background: #00b36b;
       bottom: 0;
       left: 50%;
       -webkit-transform: translateX(-50%);
@@ -417,7 +417,7 @@ p {
     .featured-btn-wrap {
       margin: 3px 0 0; } }
   .featured-btn-wrap .btn-danger {
-    background: #ff3a6d;
+    background: #00b36b;
     padding: 16px 50px;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
@@ -731,7 +731,8 @@ footer {
 
 .customer-review_wrap {
   display: inline-block;
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
 
 .customer-img {
   float: left; }

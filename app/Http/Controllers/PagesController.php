@@ -14,7 +14,7 @@ class PagesController extends Controller
     public function index(){
         $title = 'Welcome To Laravel!';
         //return view ('pages.index', compact('title'));
-        $posts = Post::orderby('created_at','desc')->paginate(10);
+        $posts = Post::where('status', 'LIKE', 1)->orderby('created_at','desc')->paginate(3);
 
         return view ('pages.index')->with('posts', $posts);
     }

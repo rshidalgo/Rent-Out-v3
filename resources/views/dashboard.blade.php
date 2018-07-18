@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<br>
+<br>
 
 @section('content')
 <br>
@@ -11,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-default">
-                <div class="card-header">Dashboard of {{Auth::user()->name}}                     <a href="/post/create" class="btn btn-primary">Create Post</a>
+                <div class="card-header">Dashboard of {{Auth::user()->name}}                    <a href="/post/create" class="btn btn-primary">Create Post</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
@@ -34,15 +35,15 @@
                                     <a href="/post/{{$post->id}}/edit" class="btn btn-info">Edit</a>
                                     </th>
                                     <th>
-                                        {!! Form::open(['action' => ['PostController@destroy', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
-                                        {{Form::hidden('_method','DELETE')}}
-                                        {{Form::submit('Reserved',['class'=>'btn btn-danger'])}}
+                                        {!! Form::open(['action' => ['PostController@reserve', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                        {{ Form::checkbox('checkbox', true) }}      
+                                        {{ Form::text('customer', '',['placeholder'=>'Customer Name'])}}                                  
+                                        {{Form::submit('Reserved',['class'=>'btn btn-warning'])}}
                                         {!!Form::close()!!}
                                     </th>
                                     <th>
-                                        {!! Form::open(['action' => ['PostController@destroy', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                        {!! Form::open(['action' => ['PostController@remove', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
                                         {{ Form::checkbox('remove', true) }}
-                                        {{Form::hidden('_method','DELETE')}}
                                         {{Form::submit('Remove',['class'=>'btn btn-danger'])}}
                                         {!!Form::close()!!}
                                     </th>
@@ -67,15 +68,14 @@
                                     </th>
                                     <th>
                                         {{--  <a href={{action('PostController@destroy', $post->id)}} class="btn btn-danger">Delete</a>  --}}
-                                        {!! Form::open(['action' => ['PostController@destroy', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
-                                        {{Form::hidden('_method','DELETE')}}
+                                        {!! Form::open(['action' => ['PostController@reactivate', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                        {{ Form::checkbox('checkbox', true) }}
                                         {{Form::submit('Reactivate',['class'=>'btn btn-danger'])}}
                                         {!!Form::close()!!}
                                     </th>
                                     <th>
-                                        {!! Form::open(['action' => ['PostController@destroy', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                        {!! Form::open(['action' => ['PostController@remove', $post->id],'method'=>'POST', 'class'=>'pull-right']) !!}
                                         {{ Form::checkbox('remove', true) }}
-                                        {{Form::hidden('_method','DELETE')}}
                                         {{Form::submit('Remove',['class'=>'btn btn-danger'])}}
                                         {!!Form::close()!!}
                                     </th>
@@ -92,5 +92,3 @@
 </div>
 
 @endsection
-
-

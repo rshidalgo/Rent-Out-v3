@@ -31,8 +31,14 @@ Route::get('/admin/condos', 'PagesController@condo');
 //     return 'Hello World this is user_id '.$id;
 // })->name('paid');
 
+Route::get('register/verify/{confirmationCode}', [
+    'as' => 'confirmation_path',
+    'uses' => 'EmailConfirmController@confirm'
+]);
 
-
+Route::post('reserved{post}', 'PostController@reserve');
+Route::post('reactivate{post}', 'PostController@reactivate');
+Route::post('remove{post}', 'PostController@remove');
 
 Route::resource('post', 'PostController');
 Route::get('/admin/users', 'AdminController@users_index');
@@ -47,7 +53,6 @@ Route::get('search', 'PostController@search')->name('search');
 Route::get('sitevisit','Email@siteVisit');
 Route::get('reserve','Email@reserve');
 Route::get('book','Email@book');
-
 
 Auth::routes();
 

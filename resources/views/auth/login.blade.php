@@ -2,9 +2,7 @@
 
 @section('content')
 <br>
-<br>
-<br>
-<br>
+<section class="slider d-flex align-items-center">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -69,4 +67,26 @@
         </div>
     </div>
 </div>
+</section>
+<!--============================= FOOTER =============================-->
+<footer class="main-block dark-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <p>Copyright &copy; 2018 Listing. All rights reserved | This project is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Rentout.inc</a></p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <ul>
+                        <p>Contact us : </p>
+                        <li><a href="https://www.facebook.com/"><span class="ti-facebook"></span></a></li>
+                        <li><a href="https://twitter.com/"><span class="ti-twitter-alt"></span></a></li>
+                        <li><a href="https://www.instagram.com/"><span class="ti-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--//END FOOTER -->
 @endsection

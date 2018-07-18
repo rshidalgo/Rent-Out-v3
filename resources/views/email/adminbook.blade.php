@@ -6,8 +6,12 @@
 <body>
 
 <div>
-     {!! $name !!}
-     <p>(insert customer $user->name )</p>
+    <p>{!! $title !!} with a duration of {!! $duration !!} booking request by {!! $customer !!} Contact him via {!! $customerE !!}, {!! $customerP !!}, or {!! $customerT !!}</p>
+
+    @if($optional != null)
+        <p>Additional Input by Customer: {!! $optional !!}</p>
+    @endif
+
 </div>
 
 </body>

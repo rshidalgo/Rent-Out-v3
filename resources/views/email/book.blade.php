@@ -6,14 +6,13 @@
 <body>
 
 <div>
-     {!! $name !!}
-     <p>Your booking request for (insert $post->title here) in (insert $post->condos['name'] has been sent 
-         to (insert $condo->pspecialist['name'])). He will reply to you shortly regarding this transaction. 
-        Regards.</p>
+<p>Your {!! $request !!} request for {!! $title !!} in {!! $condo !!} has been sent 
+         to Property Specialist {!! $propertyS !!}. The Property Specialist will reply to you shortly regarding this transaction. </p> <br> <br>
+         <p>Regards.</p>
+        <p>You may follow up through provided email address:{!! $propertyE !!}</p>
+    <a href="http://rentout.demo/"> <button> Visit Website </button> </a>
 
-        @component('mail::button', ['url' => '/email/book', 'color' => 'green'])
-        view order
-        @endcomponent
+
 </div>
 
 

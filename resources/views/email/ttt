@@ -1,0 +1,5 @@
+<p>{!! $title !!} booking request by {!! $customer !!} Contact him via {!! $customerE !!}, {!! $customerP !!}, or {!! $customerT !!}</p>
+
+@if($optional != null)
+    <p>Additional Input by Customer: {!! $optional !!}</p>
+@endif

@@ -29,6 +29,7 @@
                             </th>
                             <th>
                                 {!! Form::open(['action' => ['AdminController@condo_inactive', $condo->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                {{ Form::checkbox('checkbox', true) }}      
                                 {{Form::submit('Inactive',['class'=>'btn btn-danger'])}}
                                 {!!Form::close()!!}
                             </th>
@@ -48,6 +49,7 @@
                                     </th>
                                     <th>
                                         {!! Form::open(['action' => ['AdminController@condo_active', $condo->id],'method'=>'POST', 'class'=>'pull-right']) !!}
+                                        {{ Form::checkbox('checkbox', true) }}      
                                         {{Form::submit('Reactivate',['class'=>'btn btn-danger'])}}
                                         {!!Form::close()!!}
                                     </th>

@@ -33,7 +33,8 @@
                     <div class="col-md-12 dark-bg">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <a class="navbar-brand" href="{{ url('/') }}">
-                                {{ config('app.name', 'RentOut') }}
+                                <img src= "/images/Logo6.png" style="width:110px;height:60px;"/>
+                                {{-- {{ config('app.name', 'RentOut') }} --}}
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -47,12 +48,6 @@
                                         <ul class="navbar-nav">
                                                 <li class="nav-item active">
                                                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="/about">About</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="/services">Developers</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="/post">Dashboard</a>
@@ -80,7 +75,6 @@
                                                     {{--  Customer  --}}
                                                     @elseif(Auth::user()->types['id'] == 1)
                                                         <a class="dropdown-item" href="/profile">Profile</a>
-                                                        <a class="dropdown-item" href="#">History</a>
                                                     @endif
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();

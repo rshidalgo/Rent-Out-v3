@@ -30,8 +30,7 @@ class Post extends Model
 
             $query->where('name','like','%'.$search_term. '%');
 
-        })->orWhere('title','like','%'.$search_term. '%')->orWhere('body','like','%'.$search_term. '%')
-        ->orWhere('city','like','%'.$search_term. '%');
+        })->orWhere('title','like','%'.$search_term. '%')->orWhere('body','like','%'.$search_term. '%')->orWhere('body','like','%'.$search_term. '%');
         
     }
     public function images(){

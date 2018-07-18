@@ -50,12 +50,12 @@ class AdminController extends Controller
             'address' => 'required',
             'description' => 'required',
             'license' => 'required',
-            'tin' => 'required',
+            'tin' => 'required' ,
             'psname' => 'required',
             'email' => 'required',
             'sex' => 'required',
-            'mobnum' => 'required',
-            'telnum' => 'required',
+            'mobnum' => 'required|numeric|digits:10',
+            'telnum' => 'required|numeric|digits:7',
             'cover_image' => 'required'
         ]);
 
@@ -256,7 +256,10 @@ class AdminController extends Controller
         $users = User::where('types_id', '=', 2)->get();
         return view ('manage.user')->with('users',$users);
     }
-    public function user_paid($id){
+    public function user_paid(Request $request, $id){
+        $this->validate($request, [
+            'checkbox' => 'required',
+        ]);
         $pspecialist = User::find($id);
         $condo = Condo::find($pspecialist->condos['id']);
         $condo->status = 1;
@@ -264,7 +267,10 @@ class AdminController extends Controller
         return redirect('\admin\users')->with('success','Paid');
     }
 
-    public function user_block($id){
+    public function user_block(Request $request, $id){
+        $this->validate($request, [
+            'checkbox' => 'required',
+        ]);
         $pspecialist = User::find($id);
         $condo = Condo::find($pspecialist->condos['id']);
         $condo->status = 0;
@@ -272,13 +278,19 @@ class AdminController extends Controller
         return redirect('\admin\users')->with('success','Blocked');
     }
 
-    public function condo_active($id){
+    public function condo_active(Request $request, $id){
+        $this->validate($request, [
+            'checkbox' => 'required',
+        ]);
         $condo = Condo::find($id);
         $condo->status = 1;
         $condo->save();
         return redirect('\admin\condos')->with('success','Condo Active');
     }
-    public function condo_inactive($id){
+    public function condo_inactive(Request $request, $id){
+        $this->validate($request, [
+            'checkbox' => 'required',
+        ]);
         $condo = Condo::find($id);
         $condo->status = 0;
         $condo->save();

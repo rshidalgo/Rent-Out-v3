@@ -6,7 +6,13 @@
 <body>
 
 <div>
-     {!! $name !!} request from user. From A
+    <p>Your {!! $request !!} request for {!! $title !!} in {!! $condo !!} has been sent 
+        to {!! $propertyS !!}. The Property Specialist will reply to you shortly regarding this transaction. 
+       Regards.</p>
+
+       <p>You may follow up through the provided email address:{!! $propertyE !!}</p>
+
+   <a href="http://rentout.demo/"> <button> Visit Website </button> </a>
 </div>
 
 </body>

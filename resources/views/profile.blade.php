@@ -21,8 +21,10 @@
                         </div>
                     @endif                    
                 </div>
-                <img src="/storage/profile/{{$user->profile_picture}}" class="grid image-link" alt="profile" style="border-radius: 100%">                
-                <a href="/admin/condos" class="btn btn-primary">Go Back</a>
+                <div class="follow-img">
+                <img src="/storage/profile/{{$user->profile_picture}}" class="img-fluid" alt="#" style="width:150px;height:150px;">       
+                </div>         
+                <a href="/" class="btn btn-primary">Go Back</a>
                 {!! Form::open(['action' => ['UserController@update', $user->id],'method'=>'POST','enctype' => 'multipart/form-data']) !!}
 
                 <div class="form-group">

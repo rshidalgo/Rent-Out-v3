@@ -4,7 +4,7 @@
 <br>
 <br>
 <br>
-<br>
+<section class="slider d-flex align-items-center">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -74,10 +74,10 @@
                         </div>
 
                         <div class="form-group row">
-                                <label for="phone_num" class="col-md-4 col-form-label text-md-right">Mobile No.</label>
+                                <label for="phone_num" class="col-md-4 col-form-label text-md-right">Mobile No. (+63)</label>
     
                                 <div class="col-md-6">
-                                    <input id="phone_num" type="text" class="form-control{{ $errors->has('phone_num') ? ' is-invalid' : '' }}" name="phone_num" value="{{ old('phone_num') }}" required>
+                                    <input id="phone_num" type="number" maxlength="10" class="form-control{{ $errors->has('phone_num') ? ' is-invalid' : '' }}" name="phone_num" value="{{ old('phone_num') }}" required>
     
                                     @if ($errors->has('phone_num'))
                                         <span class="invalid-feedback">
@@ -88,10 +88,11 @@
                             </div>
 
                             <div class="form-group row">
-                                    <label for="telephone_num" class="col-md-4 col-form-label text-md-right">Telephone No.</label>
+                                    <label for="telephone_num" class="col-md-4 col-form-label text-md-right">Telephone No. (02)</label>
         
                                     <div class="col-md-6">
-                                        <input id="telephone_num" type="text" class="form-control{{ $errors->has('telephone_num') ? ' is-invalid' : '' }}" name="telephone_num" value="{{ old('telephone_num') }}" required>
+                                        <input id="telephone_num" type="number" class="form-control{{ $errors->has('telephone_num') ? ' is-invalid' : '' }}" name="telephone_num" value="{{ old('telephone_num') }}" required>
+                                        {{-- <input type="text" name="phone" maxlength="7" pattern="^[0-9]{6}|[0-9]{8}|[0-9]{10}$" /> --}}
         
                                         @if ($errors->has('telephone_num'))
                                             <span class="invalid-feedback">
@@ -136,4 +137,26 @@
         </div>
     </div>
 </div>
+</section>
+<!--============================= FOOTER =============================-->
+<footer class="main-block dark-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <p>Copyright &copy; 2018 Listing. All rights reserved | This project is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Rentout.inc</a></p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <ul>
+                        <p>Contact us : </p>
+                        <li><a href="https://www.facebook.com/"><span class="ti-facebook"></span></a></li>
+                        <li><a href="https://twitter.com/"><span class="ti-twitter-alt"></span></a></li>
+                        <li><a href="https://www.instagram.com/"><span class="ti-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--//END FOOTER -->
 @endsection

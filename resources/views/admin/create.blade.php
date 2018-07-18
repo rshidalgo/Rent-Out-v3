@@ -123,16 +123,17 @@
                 </div>
 
                 <div class="form-group">
-                        {{Form::label('mobnum', 'Mobile No.')}} 
-                        {{Form::text('mobnum', '', ['class'=>'form-control','placeholder'=>'+63 932-842-7121'])}}
+                        {{Form::label('mobnum', 'Mobile No. (+63)')}} 
+                        {{Form::number('mobnum', '', ['class'=>'form-control','placeholder'=>'932-842-7121'])}}
                 </div>
 
                 <div class="form-group">
-                        {{Form::label('telnum', 'Telephone No.')}} 
-                        {{Form::text('telnum', '', ['class'=>'form-control','placeholder'=>'(02) 881-0240'])}}
+                        {{Form::label('telnum', 'Telephone No. (02)')}} 
+                        {{Form::number('telnum', '', ['class'=>'form-control','placeholder'=>'881-0240'])}}
                 </div>
 
                 <div class="form-group">
+                    {{Form::label('pic', 'Upload Picture Logo of Condo')}} <br>
                     {{Form::file('cover_image')}}
                 </div>
 
@@ -151,7 +152,7 @@
         var addto = "#field" + next;
         var addRemove = "#field" + (next);
         next = next + 1;
-        var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="amenities[]' + next + '" type="text">';
+        var newIn = '<input autocomplete="off" class="input" id="field' + next + '" name="amenities[]' + next + '" type="text">';
         var newInput = $(newIn);
         var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
         var removeButton = $(removeBtn);
